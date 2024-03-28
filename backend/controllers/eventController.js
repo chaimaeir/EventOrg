@@ -2,6 +2,7 @@ const event = require('../models/event');
 var ObjectId = require('mongodb').ObjectId; 
 
 
+
 const getEvents = ((req,res) => {
      event
         .find()
@@ -24,7 +25,15 @@ const getEvent = (async (req,res)=>{
     
 });
 
+
 const createEvent = ((req, res) => {
+    console.log(req.files);
+   if(!req.files){
+        return res.status(400).send('No files were uploaded.');
+   }
+
+   const paths = req.files.map(file => file.path)
+
     const newEvent = new event({
         provider_id: req.body.provider_id,
         name: req.body.name,
@@ -34,11 +43,11 @@ const createEvent = ((req, res) => {
         city:req.body.city,
         date: Date.now(),
         guestNumber: req.body.guestNumber,
-        pictures: req.body.pictures,
+        pictures : paths,
         venue: req.body.venue,
         theme: req.body.theme,
-        foodmMenu: req.body.foodmMenu,
-        drinksMenu: req.body.drinksMenu
+        foodMenu: req.body.foodMenu,
+        drinksMenu:req.body.drinksMenu
     })
     newEvent
         .save()
@@ -102,5 +111,5 @@ module.exports = {
     createEvent,
     searchEvent,
     updateEvent,
-    deleteEvent
+    deleteEvent,
 }
