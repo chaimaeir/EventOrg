@@ -6,7 +6,7 @@ var ObjectId = require('mongodb').ObjectId;
 const getEvents = ((req,res) => {
      event
         .find()
-        .then((result)=>res.status(200).send(result))
+        .then((result)=>res.status(200).json(result))
         .catch((err)=>res.status(404).json({message : err}));
 });
 
@@ -23,17 +23,16 @@ const getEvent = (async (req,res)=>{
         res.status(500).json({message : error.message})
     }
     
-});
+});     
 
 
 const createEvent = ((req, res) => {
+    console.log('hh',req.body);
     console.log(req.files);
-   if(!req.files){
-        return res.status(400).send('No files were uploaded.');
-   }
-
-   const paths = req.files.map(file => file.path)
-
+    if(!req.files){
+        return res.status(400).json({message:'No files were uploaded.'});
+    }
+    const paths = req.files.map(file => file.path)
     const newEvent = new event({
         provider_id: req.body.provider_id,
         name: req.body.name,
@@ -46,8 +45,8 @@ const createEvent = ((req, res) => {
         pictures : paths,
         venue: req.body.venue,
         theme: req.body.theme,
-        foodMenu: req.body.foodMenu,
-        drinksMenu:req.body.drinksMenu
+        foodMenu: req.body.foodMenu_id,
+        drinksMenu:req.body.drinksMenu_id
     })
     newEvent
         .save()
@@ -58,6 +57,7 @@ const createEvent = ((req, res) => {
 const searchEvent = ((req,res)=>{
     event.aggregate([
         {
+
         $search: {
             index: 'default',
             text: {
@@ -78,13 +78,20 @@ const searchEvent = ((req,res)=>{
  
 const updateEvent = ((req,res)=>{
     const id = req.params.ID;
+    console.log(id);
+    console.log(req.body);
+    let paths;
+    if(req.files){
+        paths = req.files.map(file => file.path)
+    }
     event
         .findOneAndUpdate({"_id" : new  ObjectId(id) },{$set: {
+            name : req.body.name,
             type: req.body.type,
             description: req.body.description,
             date: req.body.date,
             guestNumber: req.body.guestNumber,
-            pictures: req.body.quantity,
+            pictures: paths,
             venue: req.body.venue,
             theme: req.body.theme,
             foodmMenu: req.body.foodmMenu,

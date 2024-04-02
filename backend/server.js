@@ -12,11 +12,13 @@ const eventsRoute = require('./routes/eventsRoutes');
 const bookingRoute = require('./routes/bookingRoutes')
 const feedbackRoute = require('./routes/feedbackRoutes');
 const notificationRoute = require('./routes/notificationRoutes');
+const foodMenuRoute = require("./routes/foodMenuRoutes");
+const drinksMenuRoute = require("./routes/drinksMenuRoutes")
 
 
 const  app = express();
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 
 
 // const multer = require('multer');
@@ -40,10 +42,8 @@ app.use('/api/feedback',feedbackRoute);
 app.use('/api/notification',notificationRoute);
 app.use('/api/events',eventsRoute);
 app.use('/api/bookings',bookingRoute);
-
-
-
-
+app.use('/api/events/foodMenu',foodMenuRoute);
+app.use('/api/events/drinksMenu',drinksMenuRoute);
 
 
 const port=process.env.PORT 

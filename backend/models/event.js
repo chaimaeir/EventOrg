@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const FoodMenu = require('./foodMenu');
+const DrinksMenu = require('./drinksMenu');
 
 const eventSchema = new mongoose.Schema({
     provider_id: {
@@ -18,10 +20,6 @@ const eventSchema = new mongoose.Schema({
     },
     description : {
         type : String,
-        required : true
-    },
-    date : {
-        type : Date,
         required : true
     },
     guestNumber : {
@@ -47,16 +45,18 @@ const eventSchema = new mongoose.Schema({
         type : String,
         required : true
     }],
-    foodMenu : [{
-        type : String,
-        required : true
-    }],
-    drinksMenu : [{
-        type : String,
-        required : true
-    }],
+    foodMenu : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'foodMenus'
+    },
+    drinksMenu :{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'drinksMenus'
+    },
 
-});
+},
+{timestamps : true}
+);
 
 const Event = new mongoose.model('events', eventSchema);
 
