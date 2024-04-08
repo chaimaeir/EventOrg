@@ -1,7 +1,5 @@
 const express=require( 'express')
 const database=require('./config/db')
-
-//com
 require('dotenv').config()
 
 const adminRoute= require('./routes/adminRoutes');
@@ -13,23 +11,16 @@ const bookingRoute = require('./routes/bookingRoutes')
 const feedbackRoute = require('./routes/feedbackRoutes');
 const notificationRoute = require('./routes/notificationRoutes');
 const foodMenuRoute = require("./routes/foodMenuRoutes");
-const drinksMenuRoute = require("./routes/drinksMenuRoutes")
+const drinksMenuRoute = require("./routes/drinksMenuRoutes");
+const paymentRoute = require("./routes/paymentRoutes");
+
 
 
 const  app = express();
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-
-// const multer = require('multer');
-// const upload = multer({ dest : "./uploads"});
-
-
-
-
-// app.post("/upload",upload.array("file",3),(req,res)=>{
-//     res.send("uploaded successsfully")
-// })
 /* app.use('/api/admin',adminRoute);
 app.use('/api/provider',providerRoute);
 app.use('/api/auth',authRoute);
@@ -44,6 +35,11 @@ app.use('/api/events',eventsRoute);
 app.use('/api/bookings',bookingRoute);
 app.use('/api/events/foodMenu',foodMenuRoute);
 app.use('/api/events/drinksMenu',drinksMenuRoute);
+app.use('/api/payment',paymentRoute);
+
+
+
+
 
 
 const port=process.env.PORT 
