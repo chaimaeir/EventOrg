@@ -5,7 +5,7 @@ const notificationSchema = new mongoose.Schema({
 
         type: mongoose.Schema.Types.ObjectId,
 
-        ref: 'userID'
+        ref: 'users'
 
     },
     recipient_type : {
@@ -24,6 +24,6 @@ const notificationSchema = new mongoose.Schema({
     timestamps :true
 });
 
-const notification = new mongoose.model('notifications', notificationSchema);
+const Notification = new mongoose.model('notifications', notificationSchema);
 
-module.exports = notification;
+module.exports = Notification;
