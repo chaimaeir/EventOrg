@@ -42,8 +42,6 @@ app.use('/api/customer',customerRoute);
 //     res.send("uploaded successsfully")
 // })
 
-
-//app.use('/api/feedback',feedbackRoute);
  
 
 
