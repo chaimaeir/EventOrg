@@ -14,6 +14,9 @@ const foodMenuRoute = require("./routes/foodMenuRoutes");
 const drinksMenuRoute = require("./routes/drinksMenuRoutes");
 const paymentRoute = require("./routes/paymentRoutes");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerJsdoc = require("swagger-jsdoc");
+
 
 
 const  app = express();
@@ -42,8 +45,23 @@ app.use('/api/events/foodMenu',foodMenuRoute);
 app.use('/api/events/drinksMenu',drinksMenuRoute);
 app.use('/api/payment',paymentRoute);
 
-
-
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    servers: [
+      {
+        url: "http://localhost:3000/",
+      }
+    ],
+  },
+  apis: ["./swagger/*.js"]
+};
+const specs = swaggerJsdoc(options);
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs)
+  );
 
 
 
