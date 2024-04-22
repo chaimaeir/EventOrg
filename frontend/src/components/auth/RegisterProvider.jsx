@@ -1,12 +1,13 @@
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
- function Register() {
-    const [name, setName] = useState('');
+
+
+function RegisterProvider() {
+    const [companyName, setCompanyName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
 
     const handleSignUp = () => {
         // Add sign up logic here
@@ -17,17 +18,17 @@ import { Link } from 'react-router-dom';
             <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
                 {/* Left side */}
                 <div className="flex flex-col justify-center p-8 md:p-14">
-                <span className="mb-3 text-4xl font-medium" style={{ fontFamily: 'Poppins', fontWeight : '500', fontSize: '32px' }}>Get Started Now</span>
-                    
+                    <span className="mb-3 text-4xl font-medium" style={{ fontFamily: 'Poppins', fontWeight: '500', fontSize: '32px' }}>Get Started Now</span>
+
                     <div className="py-4">
-                        <span className="mb-2 text-md">Name</span>
+                        <span className="mb-2 text-md">Company Name</span>
                         <input
                             type="text"
                             className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
-                            name="name"
-                            id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            name="companyName"
+                            id="companyName"
+                            value={companyName}
+                            onChange={(e) => setCompanyName(e.target.value)}
                         />
                     </div>
                     <div className="py-4">
@@ -71,13 +72,8 @@ import { Link } from 'react-router-dom';
                     </button>
                     <div className="text-center text-gray-400">
                         Already have an account?
-                        <Link to="/login" className="font-bold text-black"> Log in</Link>
+                        {/* <Link to="/login" className="font-bold text-black"> Log in</Link> */}
                     </div>
-                    <div className="text-center text-gray-400">
-                        Want to register as a provider?
-                    <Link to="/registerprovider" className="font-bold text-black"> Register as a Provider</Link>
-                    </div>
-
                 </div>
                 {/* Right side */}
                 <div className="relative">
@@ -86,10 +82,10 @@ import { Link } from 'react-router-dom';
                         alt="img"
                         className="w-[400px] h-full hidden rounded-r-2xl md:block object-cover"
                     />
-                    
+
                 </div>
             </div>
         </div>
     );
 }
-export default Register;
+export default RegisterProvider;
