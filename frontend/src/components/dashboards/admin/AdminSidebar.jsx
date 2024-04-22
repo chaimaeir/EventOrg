@@ -5,16 +5,18 @@ import { MdDashboard } from "react-icons/md";
 import { HiUsers } from "react-icons/hi2";
 import { FaUsers } from "react-icons/fa6";
 import { BsCalendarEventFill } from "react-icons/bs";
-import { BsChatFill } from "react-icons/bs";
 import { MdOutlinePayments } from "react-icons/md";
+import Navbar from './Navbar';
 
 
 const AdminSidebar = () => {
   return (
     <>
+    <div className='flex items-start '>
+    
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div className="bg-white w-64 shadow">
+      <div className="bg-gray-100 w-64 shadow">
          {/* Logo */}
          <div className="p-4">
           <img src={logoEvorg} alt="Logo" className=" h-20 w-auto" />
@@ -46,13 +48,6 @@ const AdminSidebar = () => {
               Events
             </Link>
           </li>
-
-          <li>
-            <Link to="/Chat" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
-            <BsChatFill className='mr-3' />
-              Chat
-            </Link>
-          </li>
           <li>
             <Link to="/Payment" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
             <MdOutlinePayments className='mr-3' />
@@ -62,8 +57,9 @@ const AdminSidebar = () => {
         </ul>
       </div>
 
-      {/* Main Content */}
-      <div className="flex-1 bg-gray-200">Main Content</div>
+    
+    </div>
+    <Navbar/>
     </div>
     </>
   );
