@@ -7,10 +7,9 @@ const Navbar = () => {
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
-  };
-
-  return (
-    <nav className="flex justify-between bg-white text-grey py-4 px-8 w-[1200px]">
+  }
+  return 
+    (<nav className="flex justify-between bg-white text-grey py-4 px-8 w-[1200px]">
       <div className="flex">
         <div className="relative">
           <input
