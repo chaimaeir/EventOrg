@@ -8,6 +8,8 @@ import Customers from './components/dashboards/admin/Customers';
 import Events from './components/dashboards/admin/Events';
 import Chat from './components/dashboards/admin/Chat';
 import Payment from './components/dashboards/admin/Payment';
+import ProviderDashboard from './components/dashboards/provider/Dashboard';
+
 import './app.css'
 const App = ()=>{
   return (
@@ -18,8 +20,8 @@ const App = ()=>{
         
         {/* admin routes */}
         
-        <Route path='/' element={<AdminSidebar/>}/>
-
+          <Route path='/' element={<ProviderDashboard/>}/>
+        
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Customers" element={<Customers />} />
           <Route path="/Providers" element={<Providers />} />
