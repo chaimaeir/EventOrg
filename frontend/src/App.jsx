@@ -17,14 +17,14 @@ const App = ()=>{
         
         {/* admin routes */}
         
-        <Route path='/' element={<AdminSidebar/>}/>
+        <Route path='/Admin/' element={<AdminSidebar/>}/>
         
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/Customers" element={<Customers />} />
-          <Route path="/Providers" element={<Providers />} />
-          <Route path="/Events" element={<Events />} />
-          <Route path="/Payment" element={<Payment />} />
-          <Route path='/' element={<Navbar/>}/>
+          <Route path="/Admin/Dashboard" element={<Dashboard />} />
+          <Route path="/Admin/Customers" element={<Customers />} />
+          <Route path="/Admin/Providers" element={<Providers />} />
+          <Route path="/Admin/Events" element={<Events />} />
+          <Route path="/Admin/Payment" element={<Payment />} />
+          <Route path='/Admin/' element={<Navbar/>}/>
       </Routes>
     </BrowserRouter>   
   

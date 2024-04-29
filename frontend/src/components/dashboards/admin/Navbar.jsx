@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between bg-white text-grey py-4 px-8 w-[1200px]">
+    <nav className="flex justify-between bg-white text-grey py-4 px-8 w-full">
       <div className="flex items-center">
         <div className="relative">
           <input

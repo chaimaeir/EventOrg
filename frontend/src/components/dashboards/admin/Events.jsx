@@ -1,11 +1,15 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar'
+import Navbar from './Navbar'
 
 function Events() {
   return (
-    <>
-      <AdminSidebar/>
-    </>
+    <div>
+    <div className="flex">
+    <AdminSidebar />
+    <div className="w-full p-5">
+      <Navbar />
+      </div></div></div>
   )
 }
 

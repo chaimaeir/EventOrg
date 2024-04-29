@@ -25,31 +25,31 @@ const AdminSidebar = () => {
        
         <ul>
           <li>
-            <Link to="/Dashboard" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
+            <Link to="/Admin/Dashboard" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
             <MdDashboard className="mr-3" /> 
              Dashboard
             </Link>
           </li>
           <li>
-            <Link to="/Customers" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
+            <Link to="/Admin/Customers" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
             <HiUsers className="mr-3" />
               Customers
             </Link>
           </li>
           <li>
-            <Link to="/Providers" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
+            <Link to="/Admin/Providers" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
             <FaUsers className='mr-3' />
               Providers
             </Link>
           </li>
           <li>
-            <Link to="/Events" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
+            <Link to="/Admin/Events" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
             <BsCalendarEventFill  className='mr-3'/>
               Events
             </Link>
           </li>
           <li>
-            <Link to="/Payment" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
+            <Link to="/Admin/Payment" className="flex items-center px-4 py-2 text-gray-800 hover:bg-[#14429B] hover:text-white hover:border hover:border-gray-400 hover:rounded-full">
             <MdOutlinePayments className='mr-3' />
               Transaction
             </Link>
@@ -59,7 +59,7 @@ const AdminSidebar = () => {
 
     
     </div>
-    <Navbar/>
+    
     </div>
     </>
   );
