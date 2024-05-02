@@ -1,55 +1,21 @@
-import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
-import { IoNotifications } from 'react-icons/io5';
+import React from 'react';
+import { IoIosNotifications } from "react-icons/io";
+import { MdMenuOpen } from "react-icons/md";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  }
-  return 
-    (<nav className="flex justify-between bg-white text-grey py-4 px-8 w-[1200px]">
-      <div className="flex">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="px-5 py-2 w-96 rounded-full bg-gray-200 text-black focus:outline-none focus:bg-gray-200"
-          />
-          <FaSearch className="absolute w-5 h-5 right-3 top-3 text-gray-400 pointer-events-none" />
-        </div>
+const Navbar = () => (
+  <header className="bg-white text-gray-800 p-4 shadow-sm z-10 ">
+    <div className="flex items-center justify-between">
+      <div className="flex gap-6">
+        <h1 className='ml-5 text-2xl font-semibold '>PROVIDER</h1>
+        <input type="text" placeholder="Search..." className="rounded-full py-1 px-2 bg-gray-100 border-gray-500 focus:outline-none focus:border-blue-500 text-gray-800 w-[400px] " />
       </div>
-      <div className="flex ">
-        <div className="mr-4">
-          <IoNotifications className="w-6 h-6 cursor-pointer" />
-        </div>
-        {/* Profile Pic */}
-        <div className="relative">
-          <button onClick={toggleDropdown} className="text-white focus:outline-none">
-            <img
-              className="h-8 w-8 rounded-full"
-              src="https://via.placeholder.com/50"
-              alt="Profile"
-            />
-          </button>
-          {isOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
-              <button className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
-                Profile
-              </button>
-              <button className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
-                Sign Out
-              </button>
-              <button className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
-                Settings
-              </button>
-            </div>
-          )}
-        </div>
+      <div className="flex items-center gap-4">
+        <div className="h-10 w-10 bg-blue-500 flex items-center justify-center rounded-full mr-2">U</div>
+        <IoIosNotifications className='text-4xl' />
+        <MdMenuOpen className='text-5xl' />    
       </div>
-    </nav>
-  );
-};
+    </div>
+  </header>
+);
 
 export default Navbar;

@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {},
+
+    fontFamily:{
+      imbue : ['Imbue']
+    }
+    
   },
   plugins: [],
 }
