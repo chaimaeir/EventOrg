@@ -10,7 +10,6 @@ import About from './components/pages/About';
 
 import './app.css'
 import DashboardLayout from './layouts/dashboard';
-import EventsTable from './components/dashboards/provider/EventsTable';
 const App = ()=>{
   return (
     <>
@@ -19,11 +18,7 @@ const App = ()=>{
         
         {/* admin routes */}
         
-          <Route path='/dashboard' element={<DashboardLayout/>}>
-               
-            <Route index element={<EventsTable />} />
-            
-          </Route>
+         
 
           <Route path='/about' element={<About/>}>
 
