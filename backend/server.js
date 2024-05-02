@@ -31,6 +31,11 @@ app.use('/api/customer',customerRoute);
 app.use('/api/events',eventsRoute);
 // app.use('/api/feedback',feedbackRoute);
 app.use('/api/notification',notificationRoute);
+app.use('/api/events',eventsRoute);
+app.use('/api/bookings',bookingRoute);
+app.use('/api/events/foodMenu',foodMenuRoute);
+app.use('/api/events/drinksMenu',drinksMenuRoute);
+
 
 const multer = require('multer');
 const upload = multer({ dest : "./uploads"});
@@ -38,22 +43,7 @@ const upload = multer({ dest : "./uploads"});
 
 
 
-// app.post("/upload",upload.array("file",3),(req,res)=>{
-//     res.send("uploaded successsfully")
-// })
 
- 
-
-
-
-app.use('/api/notification',notificationRoute);
-app.use('/api/events',eventsRoute);
-app.use('/api/bookings',bookingRoute);
-app.use('/api/events/foodMenu',foodMenuRoute);
-app.use('/api/events/drinksMenu',drinksMenuRoute);
-
-
-//const port=process.env.PORT 
 app.listen(3000, ()=>{
     console.log(`Server is running on 3000`)
 })

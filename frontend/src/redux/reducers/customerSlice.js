@@ -53,6 +53,7 @@ const customerSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       });
+      
   },
 });
 

@@ -2,35 +2,35 @@ import React, { useState } from 'react';
 import { FaUserAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
-const UpdateForm = ({ customer, onUpdate, onCancel }) => {
-  const [name, setName] = useState(customer.username);
-  const [email, setEmail] = useState(customer.email);
+const UpdateProviderForm = ({ provider, onUpdate, onCancel }) => {
+  const [name, setName] = useState(provider.companyName);
+  const [email, setEmail] = useState(provider.email);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const updatedCustomer = {
-      ...customer,
-      username: name,
+    const updatedProvider = {
+      ...provider,
+      companyname: name,
       email: email,
     };
-    onUpdate(updatedCustomer);
+    onUpdate(updatedProvider);
   };
 
   return (
     <div>
       <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
-            <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 relative">
-        Username
+            <label htmlFor="companyname" className="block mb-2 text-sm font-medium text-gray-900 relative">
+        Company Name
       </label>
       <div className="relative">
         <FaUserAlt className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black" /> {/* Icon */}
         <input
           type="text"
-          id="username"
+          id="companyname"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-10 py-2 pl-14" // Adjusted padding for the icon
-          placeholder="Username"
+          placeholder="Company Name"
         />
       </div>
 
@@ -69,4 +69,4 @@ const UpdateForm = ({ customer, onUpdate, onCancel }) => {
   );
 };
 
-export default UpdateForm;
+export default UpdateProviderForm;

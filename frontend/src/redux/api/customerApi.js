@@ -40,3 +40,4 @@ export const updateCustomer = async (customer) => {
     throw error.response?.data?.message || error.message;
   }
 };
+

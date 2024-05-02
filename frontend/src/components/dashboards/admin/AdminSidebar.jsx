@@ -6,7 +6,7 @@ import { HiUsers } from "react-icons/hi2";
 import { FaUsers } from "react-icons/fa6";
 import { BsCalendarEventFill } from "react-icons/bs";
 import { MdOutlinePayments } from "react-icons/md";
-import Navbar from './Navbar';
+
 
 
 const AdminSidebar = () => {

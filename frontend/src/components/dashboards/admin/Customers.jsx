@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCustomers, deleteCustomer, updateCustomer } from '../../../redux/actions/customerActions';
+import { fetchCustomers, deleteCustomer, updateCustomer} from '../../../redux/actions/customerActions';
 import Navbar from './Navbar';
 import AdminSidebar from './AdminSidebar';
 import { FiEdit } from "react-icons/fi";
 import { MdOutlineDeleteOutline } from "react-icons/md";
-import UpdateForm from './UpdateForm';
+import UpdateForm from './forms/UpdateForm';
+
 
 function Customers() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function Customers() {
   const [confirmUpdate, setConfirmUpdate] = useState(null);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [selectedCustomer, setSelectedCustomer] = useState(null);
+ 
 
   useEffect(() => {
     dispatch(fetchCustomers());
@@ -46,6 +48,8 @@ function Customers() {
     setConfirmUpdate(null);
     setShowUpdateForm(false);
   };
+
+ 
 
   return (
     <div className="flex">
