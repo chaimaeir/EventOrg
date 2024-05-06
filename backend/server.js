@@ -28,29 +28,14 @@ app.use('/api/admin',adminRoute);
 app.use('/api/provider',providerRoute);
 app.use('/api/auth',authRoute);
 app.use('/api/customer',customerRoute);
-// app.use('/api/events',eventsRoute);
-// app.use('/api/feedback',feedbackRoute);
-// app.use('/api/notification',notificationRoute);
-
-// const multer = require('multer');
-// const upload = multer({ dest : "./uploads"});
-
-
-
-
-// app.post("/upload",upload.array("file",3),(req,res)=>{
-//     res.send("uploaded successsfully")
-// })
-
- 
-
-
+app.use('/api/events',eventsRoute);
+//app.use('/api/feedback',feedbackRoute);
 
 app.use('/api/notification',notificationRoute);
-app.use('/api/events',eventsRoute);
 app.use('/api/bookings',bookingRoute);
 app.use('/api/events/foodMenu',foodMenuRoute);
 app.use('/api/events/drinksMenu',drinksMenuRoute);
+
 
 
 //const port=process.env.PORT 

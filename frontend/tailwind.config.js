@@ -5,7 +5,18 @@ export default {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        imbue:["Imbue"]
+      },
+    fontWeight:{
+      imbue:{
+        300:"light",
+        500:"medium ",
+        400: "Regular"
+      }
+    }
+    },
   },
   plugins: [],
 }
