@@ -1,11 +1,13 @@
+import React from 'react'
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
 import Logo2 from "../../assets/images/logoEvorg.png";
-function footer() {
+
+function Footer() {
   return (
     <div>
-      <div className="bg-red-800">
+      <div className="bg-red-800 ">
         <div className="max-w-screen-lg px-4 sm:px-6 text-black sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
           <div className="p-5">
             <img src={Logo2} alt="image" />
@@ -68,11 +70,11 @@ function footer() {
               <FiInstagram />
             </a>
           </div>
-          <div className="my-5">© Copyright 2020. All Rights Reserved.</div>
+          <div className="my-5">© Copyright 2024. All Rights Reserved.</div>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default footer;
+export default Footer
