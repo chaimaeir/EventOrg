@@ -2,10 +2,6 @@ import React from "react";
 import Navbar from "../shared/Navbar";
 import home from "../../assets/images/home.png";
 import secondImg from "../../assets/images/secondHomeImg.png";
-import corporate from "../../assets/images/corporate.png";
-import ourMission1 from "../../assets/images/ourMission1.png";
-import ourMission2 from "../../assets/images/ourMission2.png";
-import ourMission3 from "../../assets/images/ourMission3.png";
 import Footer from "../shared/Footer";
 import bestevent1 from "../../assets/images/bestevent1.png"
 import bestevent2 from "../../assets/images/bestevent2.png"
@@ -14,24 +10,24 @@ import bestevent2 from "../../assets/images/bestevent2.png"
 function Home() {
   return (
     <div>
-      <div className="h-screen flex  flex-col">
+      <div className="h-[50vh] md:h-[70vh] lg:h-screen flex  flex-col">
         <Navbar />
 
-        <div className=" relative flex-1 ">
-          <img className="absolute z-[-1] " src={home} alt="" />
-          <p className=" flex items-center justify-center z-10  h-full text-white font-semibold text-[5rem] font-imbue">
+        <div className=" relative flex-1  ">
+          <img className="absolute z-[-1] h-full " src={home} alt="" />
+          <p className=" flex items-center justify-center z-10  h-full text-white font-semibold text-[2rem] md:text-[3rem] lg:text-[5rem] font-imbue">
             Make Every Experience Magical
           </p>
         </div>
       </div>
 
-      <div className="flex  items-center justify-center gap-16  py-8 my-5">
+      <div className="md:flex items-center justify-center  lg:gap-16 m-16  md:py-20 md:my-5">
         <div className="flex flex-col items-start justify-center max-w-[500px]">
-            <h1 className="text-[#213f2e] text-6xl font-imbue  ">
+            <h1 className="text-[#213f2e] text-4xl lg:text-6xl  md:ml-9 font-imbue  ">
             About Us
             </h1>
-            <p className="font-imbue text-2xl  text-black mt-9 w-[500px]">
-            We are a full-service catering and events company serving all of
+            <p className="font-imbue text-[19px] md:text-[21px] lg:text-2xl  md:ml-6 text-black mt-9 md:w-[500px]">
+            We are a full-service catering and events company serving all ofpx
             Morocco . We help create extraordinary celebration,and corporate
             events by placing a strong emphasis on personalized customer service.
             Our approach is simple: We hold ourselves to exceptionally high
@@ -40,23 +36,23 @@ function Home() {
         </div>
 
         <div className=" ">
-          <img className="max-h-[500px] p-5 " src={secondImg} alt="" />
+          <img className="max-h-[350px] md:max-h-[500px] min-w-[260px] p-5 " src={secondImg} alt="" />
         </div>
       </div>
 
       <div className="flex flex-col  items-center justify-center py-5">
-        <h1 className="text-[#213f2e] text-5xl font-imbue font-semibold my-6 ">
+        <h1 className="text-[#213f2e] text-4xl lg:text-5xl  font-imbue font-semibold my-6 ">
           SOME OF OUR BEST EVENTS
         </h1>
 
-        <div className="flex gap-12  justify-center items-start py-8">
+        <div className="flex gap-12 ml-6  justify-center items-start py-8">
             <img
-              className="max-h-[300px] z-[-1]"
+              className="max-h-[250px] md:max-h-[300px] z-[-1]"
               src={bestevent1}
               alt=""
             />
            
-          <p className="font-imbue text-2xl mt-10  text-black w-[400px] max-h-[500px] p-5">
+          <p className="font-imbue  text-[15px] md:text-2xl md:mt-10  text-black w-[400px] max-h-[500px] p-5">
             We’re passionate about creating experiences and leaving lasting
             memories for our guests. Our commitment is to make every event a
             truly exceptional experience! Our inspiration is an ongoing
@@ -66,14 +62,14 @@ function Home() {
           
         </div>
 
-        <div className="flex gap-12  justify-center items-start py-8">
+        <div className="flex gap-12 ml-6 justify-center items-start py-8">
             <img
-              className="max-h-[300px] z-[-1]"
+              className="max-h-[250px] md:max-h-[300px] z-[-1]"
               src={bestevent2}
               alt=""
             />
            
-          <p className="font-imbue text-2xl mt-10  text-black w-[400px] max-h-[500px] p-5">
+          <p className="font-imbue text-[15px] md:text-2xl md:mt-10  text-black w-[400px] max-h-[500px] p-5">
             We’re passionate about creating experiences and leaving lasting
             memories for our guests. Our commitment is to make every event a
             truly exceptional experience! Our inspiration is an ongoing
@@ -96,7 +92,7 @@ function Home() {
                 <input
                   type="text"
                   placeholder="Enter your email address"
-                  className="py-6 mr-4 px-5 font-imbue text-4xl rounded-lg  border w-full focus:outline-none border-white    "
+                  className="py-6 mr-4 px-5 font-imbue text-2xl md:text-4xl rounded-lg  border w-full focus:outline-none border-white    "
                 />
               </div>
               <button className="bg-gradient-to-br from-red-700 to-black font-imbue w-full text-xl  min-h-20 min-w-64 hover:shadow-md focus:ring-2 focus:ring-indigo-500/50 ring-offset-2 ring-offset-[#EAE8FF] hover:drop-shadow transition duration-200 lg:w-1/3 text-white text-sm rounded-lg px-5 py-2.5 shadow-md group font-clash font-[500]">

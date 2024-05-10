@@ -8,11 +8,11 @@ function Footer() {
   return (
     <div>
       <div className="bg-red-800 ">
-        <div className="max-w-screen-lg px-4 sm:px-6 text-black sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
-          <div className="p-5">
+        <div className="max-w-screen-lg flex flex-col items-center  px-4 md:px-5 text-black md:grid md:grid-cols-4  md:items-center mx-auto">
+          <div className="md:p-5">
             <img src={Logo2} alt="image" />
           </div>
-          <div className="p-5">
+          <div className="md:p-5 max-w-[150px] md:max-w-full">
             <div className="text-sm uppercase text-white font-bold">
               Resources
             </div>
@@ -26,7 +26,7 @@ function Footer() {
               Support 
             </a>
           </div>
-          <div className="p-5">
+          <div className="md:p-5  max-w-[150px] md:max-w-full">
             <div className="text-sm uppercase text-white font-bold">
               Support
             </div>
@@ -40,7 +40,7 @@ function Footer() {
               Conditions 
             </a>
           </div>
-          <div className="p-5">
+          <div className="p-5 max-w-[150px] md:max-w-full">
             <div className="text-sm uppercase text-white font-bold">
               Contact us
             </div>

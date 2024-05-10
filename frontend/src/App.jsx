@@ -25,7 +25,7 @@ const App = () => {
 
         <Route path="/filter" element={<Filter />}></Route>
 
-        <Route path="/home" element={<Home />}></Route>
+        <Route path="/" element={<Home />}></Route>
 
 
 
