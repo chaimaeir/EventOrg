@@ -11,22 +11,22 @@ import Footer from "../shared/Footer";
 function About() {
   return (
     <div>
-      <div className="h-screen flex  flex-col">
+      <div className="min-w-[420px] h-[50vh] md:h-[70vh] lg:h-screen mb-12  flex   flex-col">
         <Navbar />
 
         <div className=" relative flex-1 ">
-          <img className="absolute z-[-1] " src={aboutUs} alt="" />
-          <p className=" flex items-center justify-center z-10  h-full text-white font-semibold text-[14rem] font-imbue">
+          <img className="absolute z-[-1] h-full " src={aboutUs} alt="" />
+          <p className=" flex items-center justify-center z-10  h-full text-white font-semibold text-[3rem] md:text-[4rem] lg:text-[5rem] font-imbue">
             About Us
           </p>
         </div>
       </div>
 
-      <div className="flex flex-col  items-center justify-center  py-5 ">
-        <h1 className="text-[#213f2e] text-6xl font-imbue  ">
+      <div className="min-w-[420px] flex flex-col  items-center justify-center py-5 ">
+        <h1 className="text-[#213f2e] text-3xl lg:text-6xl font-imbue  ">
           Making Moments Memorable
         </h1>
-        <p className="font-imbue text-2xl text-center text-black mt-9 w-[900px]">
+        <p className="font-imbue w-[300px] md:text-2xl text-center text-black mt-9 md:w-[900px]">
           We are a full-service catering and events company serving all of
           Morocco . We help create extraordinary celebration,and corporate
           events by placing a strong emphasis on personalized customer service.
@@ -34,38 +34,38 @@ function About() {
           standards because you deserve simply the finest.
         </p>
 
-        <div className="flex gap-60 ">
-          <img className="max-h-[500px] p-5 " src={celebration} alt="" />
-          <img className="max-h-[500px] p-5" src={corporate} alt="" />
+        <div className="flex flex-col md:flex-row md:flex md:gap-60 ">
+          <img className="max-h-[400px] md:max-h-[500px] p-5 " src={celebration} alt="" />
+          <img className="max-h-[400px] md:max-h-[500px] p-5" src={corporate} alt="" />
         </div>
       </div>
 
-      <div className="flex flex-col  items-center justify-center py-5">
-        <h1 className="text-[#213f2e] text-6xl font-imbue mt-6 ">
+      <div className="min-w-[420px] flex flex-col  items-center justify-center py-5">
+        <h1 className="text-[#213f2e] text-4xl md:text-6xl font-imbue mt-6 ">
           Our Mission
         </h1>
 
-        <div className="flex gap-12 items-center justify-center py-8">
-          <p className="font-imbue text-2xl text-center text-black w-[400px] max-h-[500px] p-5">
+        <div className="flex flex-col md:flex-row md:gap-12 items-center justify-center py-8">
+          <p className="font-imbue md:text-2xl text-center text-black md:w-[400px] md:max-h-[500px] p-5">
             We’re passionate about creating experiences and leaving lasting
             memories for our guests. Our commitment is to make every event a
             truly exceptional experience! Our inspiration is an ongoing
             dialogue; we persistently seek it and strive to inspire others
             through our commitment to excellence and unwavering passion.
           </p>
-          <div className=" flex max-w-[700px] ml-[100] p-5">
+          <div className="max-w-[350px] flex md:max-w-[700px] md:ml-[100] p-5">
             <img
-              className="max-h-[350px] mt-32 z-[-1]"
+              className="max-h-[200px] md:max-h-[350px] mt-32 z-[-1]"
               src={ourMission1}
               alt=""
             />
             <img
-              className="max-h-[350px] ml-[-60px] z-10"
+              className="max-h-[200px] md:max-h-[350px] ml-[-60px] z-10"
               src={ourMission2}
               alt=""
             />
             <img
-              className="max-h-[350px] ml-[-70px] mt-40"
+              className="max-h-[200px] md:max-h-[350px] ml-[-70px] mt-40"
               src={ourMission3}
               alt=""
             />
@@ -73,45 +73,45 @@ function About() {
         </div>
       </div>
 
-      <div className="flex flex-col  items-center justify-center py-8 font-imbue">
-        <h1 className="text-[#213f2e] text-6xl font-imbue mt-6 ">
+      <div className="min-w-[420px] flex flex-col  items-center justify-center py-8 font-imbue">
+        <h1 className="text-[#213f2e] text-3xl md:text-6xl font-imbue mt-6 ">
           OUR PROMISE TO YOU
         </h1>
 
-        <div className="flex gap-16 items-center bg-[#f0e3e3] justify-center p-8 mt-12">
+        <div className="flex flex-col md:flex-row md:gap-16 items-center bg-[#f0e3e3] justify-center p-8 mt-12">
           <div className="flex flex-col p-5  ">
-            <h3 className=" pb-5 text-4xl font-semibold text-[#b1170d] ">
+            <h3 className=" pb-5 md:text-4xl font-semibold text-[#b1170d] ">
               Service D'excellence
             </h3>
-            <p className="text-2xl">
+            <p className="md:text-2xl">
               We are committed to proactively identifying and meeting the needs
               of our colleagues, clients, and communities.
             </p>
           </div>
 
           <div className="flex flex-col p-5 ">
-            <h3 className=" pb-5 text-4xl font-semibold text-[#b1170d] ">
+            <h3 className=" pb-5 md:text-4xl font-semibold text-[#b1170d] ">
               Service D'excellence
             </h3>
-            <p className="text-2xl">
+            <p className="md:text-2xl">
               We are committed to proactively identifying and meeting the needs
               of our colleagues, clients, and communities.
             </p>
           </div>
           <div className="flex flex-col p-5 ">
-            <h3 className=" pb-5 text-4xl font-semibold text-[#b1170d] ">
+            <h3 className=" pb-5 md:text-4xl font-semibold text-[#b1170d] ">
               Service D'excellence
             </h3>
-            <p className="text-2xl">
+            <p className="md:text-2xl">
               We are committed to proactively identifying and meeting the needs
               of our colleagues, clients, and communities.
             </p>
           </div>
           <div className="flex flex-col p-5 ">
-            <h3 className=" pb-5 text-4xl font-semibold text-[#b1170d] ">
+            <h3 className=" pb-5 md:text-4xl font-semibold text-[#b1170d] ">
               Service D'excellence
             </h3>
-            <p className="text-2xl ">
+            <p className="md:text-2xl ">
               We are committed to proactively identifying and meeting the needs
               of our colleagues, clients, and communities.
             </p>

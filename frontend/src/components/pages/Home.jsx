@@ -10,7 +10,7 @@ import bestevent2 from "../../assets/images/bestevent2.png"
 function Home() {
   return (
     <div>
-      <div className="h-[50vh] md:h-[70vh] lg:h-screen flex  flex-col">
+      <div className="min-w-[420px] h-[50vh] md:h-[70vh] lg:h-screen  flex   flex-col">
         <Navbar />
 
         <div className=" relative flex-1  ">
@@ -21,8 +21,8 @@ function Home() {
         </div>
       </div>
 
-      <div className="md:flex items-center justify-center  lg:gap-16 m-16  md:py-20 md:my-5">
-        <div className="flex flex-col items-start justify-center max-w-[500px]">
+      <div className=" min-w-[317px] md:flex items-center justify-center  lg:gap-16 m-16  md:py-20 md:my-5">
+        <div className="flex flex-col items-start justify-center  max-w-[500px]">
             <h1 className="text-[#213f2e] text-4xl lg:text-6xl  md:ml-9 font-imbue  ">
             About Us
             </h1>
@@ -40,19 +40,19 @@ function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col  items-center justify-center py-5">
+      <div className="flex flex-col min-w-[416px]  items-center justify-center py-5">
         <h1 className="text-[#213f2e] text-4xl lg:text-5xl  font-imbue font-semibold my-6 ">
           SOME OF OUR BEST EVENTS
         </h1>
 
-        <div className="flex gap-12 ml-6  justify-center items-start py-8">
+        <div className="flex md:gap-12 ml-6  justify-center items-start py-8">
             <img
               className="max-h-[250px] md:max-h-[300px] z-[-1]"
               src={bestevent1}
               alt=""
             />
            
-          <p className="font-imbue  text-[15px] md:text-2xl md:mt-10  text-black w-[400px] max-h-[500px] p-5">
+          <p className="font-imbue text-[15px]  md:text-2xl md:mt-10  text-black w-[400px] max-h-[500px] p-5">
             We’re passionate about creating experiences and leaving lasting
             memories for our guests. Our commitment is to make every event a
             truly exceptional experience! Our inspiration is an ongoing
@@ -62,7 +62,7 @@ function Home() {
           
         </div>
 
-        <div className="flex gap-12 ml-6 justify-center items-start py-8">
+        <div className="flex md:gap-12 ml-6  justify-center items-start py-8">
             <img
               className="max-h-[250px] md:max-h-[300px] z-[-1]"
               src={bestevent2}
@@ -81,7 +81,7 @@ function Home() {
       
 
       
-        <section className="w-full max-w-5xl  mx-auto p-5 lg:px-0">
+        <section className="w-full max-w-5xl min-w-[416px] mx-auto p-5 lg:px-0">
           <div className=" p-6 md:p-10 rounded-2xl mx-auto flex flex-col gap-y-5 justify-center items-center relative">
             <h3 className="text-2xl font-imbue md:text-3xl lg:text-4xl font-bold text-[#213f2e] text-center">
               Get notified when we have new event
