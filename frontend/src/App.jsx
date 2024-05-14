@@ -9,12 +9,12 @@ import Customers from './components/dashboards/admin/Customers';
 import EventsAdmin from './components/dashboards/admin/EventsAdmin';
 import Payment from './components/dashboards/admin/Payment';
 import './app.css'
-import About from "./components/pages/About";
+import About from "./pages/About";
 import "./app.css";
 
-import Events from "./components/pages/Events";
+import Events from "./pages/Events";
 import Filter from "./components/shared/Filter";
-import Home from "./components/pages/Home";
+import Home from "./pages/Home";
 const App = ()=>{
   return (
     <>
