@@ -1,15 +1,15 @@
-import Navbar from "../shared/Navbar";
-import eventsPic from "../../assets/images/events.png";
-import wedding from "../../assets/images/wedding.png";
-import engagement from "../../assets/images/engagement.png";
-import graduation from "../../assets/images/graduation.png";
-import anniversary from "../../assets/images/anniversary.png";
-import babyshower from "../../assets/images/babyshower.png";
-import birthday from "../../assets/images/birthday.png";
-import conference from "../../assets/images/conference.png";
-import teambuilding from "../../assets/images/teambuilding.png";
-import productlaunching from "../../assets/images/productlaunching.png";
-import Footer from "../shared/Footer";
+import Navbar from "../components/shared/Navbar";
+import eventsPic from "../assets/images/events.png";
+import wedding from "../assets/images/wedding.png";
+import engagement from "../assets/images/engagement.png";
+import graduation from "../assets/images/graduation.png";
+import anniversary from "../assets/images/anniversary.png";
+import babyshower from "../assets/images/babyshower.png";
+import birthday from "../assets/images/birthday.png";
+import conference from "../assets/images/conference.png";
+import teambuilding from "../assets/images/teambuilding.png";
+import productlaunching from "../assets/images/productlaunching.png";
+import Footer from "../components/shared/Footer";
 
 function Events() {
   return (
