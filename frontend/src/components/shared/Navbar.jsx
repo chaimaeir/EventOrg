@@ -22,7 +22,7 @@ function Navbar() {
                 <div className="hidden md:flex justify-center text-center items-center space-x-4">
                     <Link to="/home" className="text-2xl">Home</Link>
                     <Link to="/about" className="text-2xl">About</Link>
-                    <Link to="/home">
+                    <Link to="/">
                         <img className='object-cover h-[70px]' src={evorglogo} alt="" />
                     </Link>
                     <Link to="/events" className="text-2xl">Events</Link>
@@ -53,7 +53,7 @@ function Navbar() {
                     <div className="md:hidden absolute left-0 top-10">
                         <ul className="bg-white w-40 rounded-lg shadow-md text-center">
                             <li>
-                                <Link to="/home" className="block py-2 px-4 text-lg text-black hover:bg-gray-200" onClick={closeMenu}>Home</Link>
+                                <Link to="/" className="block py-2 px-4 text-lg text-black hover:bg-gray-200" onClick={closeMenu}>Home</Link>
                             </li>
                             <li>
                                 <Link to="/about" className="block py-2 px-4 text-lg text-black hover:bg-gray-200" onClick={closeMenu}>About</Link>

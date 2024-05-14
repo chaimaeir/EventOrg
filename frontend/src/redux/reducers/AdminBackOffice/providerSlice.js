@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchProviders, deleteProvider, updateProvider } from '../actions/providerActions';
+import { fetchProviders, deleteProvider, updateProvider } from '../../actions/AdminBackOffice/providerActions';
 
 const initialState = {
   providers: [],

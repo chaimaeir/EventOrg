@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCustomers, deleteCustomer, updateCustomer } from '../actions/customerActions';
+import { fetchCustomers, deleteCustomer, updateCustomer } from '../../actions/AdminBackOffice/customerActions';
 
 const initialState = {
   customers: [],
