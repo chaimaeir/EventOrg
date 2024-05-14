@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../shared/Navbar";
-import home from "../../assets/images/home.png";
-import secondImg from "../../assets/images/secondHomeImg.png";
-import Footer from "../shared/Footer";
-import bestevent1 from "../../assets/images/bestevent1.png"
-import bestevent2 from "../../assets/images/bestevent2.png"
+import home from "../assets/images/home.png";
+import secondImg from "../assets/images/secondHomeImg.png";
+import Footer from "../components/shared/Footer";
+import bestevent1 from "../assets/images/bestevent1.png"
+import bestevent2 from "../assets/images/bestevent2.png"
 
 
 function Home() {
