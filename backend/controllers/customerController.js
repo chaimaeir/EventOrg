@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 
 
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id }, process.env.JWT_SECRET || 'fallbackSecret', {
     expiresIn: '30d',
   });
 };
@@ -16,13 +16,14 @@ exports.loginCustomer = asyncHandler(async (req, res) => {
   const customer = await Customer.findOne({ email });
 
   if (customer && (await customer.comparePassword(password))) {
-    res.send({ message: "Logged succesfully"})
-    res.json({
+    // res.send({ message: "Logged succesfully"})
+    res.status(200).json({
       _id: customer._id,
       customername: customer.username,
       email: customer.email,
       token: generateToken(customer._id),
     });
+   
   } else {
     res.status(401).send('Invalid credentials');
   }

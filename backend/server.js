@@ -2,7 +2,7 @@
 const express = require ('express')
 const DATABASE = require ('./config/db')
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 
 
 require('dotenv').config()
@@ -24,7 +24,7 @@ const paymentRoute = require("./routes/paymentRoutes");
 
 const app = express();
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
@@ -37,16 +37,14 @@ app.use('/api/admin',adminRoute);
 app.use('/api/provider',providerRoute);
 app.use('/api/auth',authRoute);
 app.use('/api/customer',customerRoute);
-// app.use('/api/events',eventsRoute);
-// app.use('/api/feedback',feedbackRoute);
-// app.use('/api/notification',notificationRoute);
+app.use('/api/events',eventsRoute);
+
 
 // const multer = require('multer');
 // const upload = multer({ dest : "./uploads"});
 
 
 
-const  app = express();
 
 app.use(express.json({
     verify: function (req, res, buf) {
@@ -56,18 +54,15 @@ app.use(express.json({
 }))
 app.use(express.urlencoded({ extended: false }))
 
-/* app.use('/api/admin',adminRoute);
-app.use('/api/provider',providerRoute);
-app.use('/api/auth',authRoute);
-app.use('/api/customer',customerRoute);
+
 
 
  
 
 
 
+
 app.use('/api/notification',notificationRoute);
-app.use('/api/events',eventsRoute);
 app.use('/api/bookings',bookingRoute);
 app.use('/api/events/foodMenu',foodMenuRoute);
 app.use('/api/events/drinksMenu',drinksMenuRoute);
@@ -93,7 +88,13 @@ app.use(
 
 
 
-//const port=process.env.PORT 
+const multer = require('multer');
+const upload = multer({ dest : "./uploads"});
+
+
+
+
+
 app.listen(3000, ()=>{
     console.log(`Server is running on 3000`)
 })
