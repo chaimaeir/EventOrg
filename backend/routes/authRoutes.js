@@ -17,4 +17,9 @@ router.post('/provider/login', authController.loginProvider);
 
 
 
+// Route to request password reset
+router.post('/password/reset', authController.requestReset);
+// Route to reset password
+router.post('/api/password/reset/:code', authController.passwordReset);
+
 module.exports = router; 

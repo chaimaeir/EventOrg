@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
 const bcrypt = require('bcrypt');
+const crypto = require("crypto")
 
 
 const customerSchema = new mongoose.Schema({
@@ -49,7 +50,16 @@ const customerSchema = new mongoose.Schema({
   payment_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Payment'
-  }
+  },
+  resetPasswordCode: {
+    type: String,
+    default: null
+  },
+  resetPasswordExpires: {
+    type: Date,  
+    default: null
+  },
+  
 });
 
 // fire a function before doc saved to db
@@ -60,10 +70,18 @@ customerSchema.pre('save', async function(next) {
   next();
 });
 
+// Hash password before saving to the database
+customerSchema.pre('save', async function(next) {
+  if (this.isModified('password')) {
+    this.password = await bcrypt.hash(this.password, 8);
+  }
+  next();
+});
+
+// Method to compare passwords
 customerSchema.methods.comparePassword = async function(candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
 };
-
 
 // // static method to login customer
 // customerSchema.statics.login = async function(email, password) {
