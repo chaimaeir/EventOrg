@@ -92,5 +92,23 @@ exports.loginProvider = asyncHandler(async (req, res) => {
   }
 });
 
+exports.loginCustomer = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const customer = await Customer.findOne({ email });
+
+  if (customer && (await customer.comparePassword(password))) {
+    // res.send({ message: "Logged succesfully"})
+    res.status(200).json({
+      _id: customer._id,
+      customername: customer.username,
+      email: customer.email,
+      token: generateToken(customer._id),
+    });
+   
+  } else {
+    res.status(401).send('Invalid credentials');
+  }
+});
 
 
