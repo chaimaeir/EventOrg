@@ -7,11 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'fray': '#C5C5C5', // Define a custom color 'fray' with hex value #C5C5C5
-        'fray-dark': '#9E9E9E', // Define a darker shade for focus state
+        'fray': '#C5C5C5', // Custom color 'fray' with hex value #C5C5C5
+        'fray-dark': '#9E9E9E', // Darker shade for focus state
+      },
+      fontFamily: {
+        imbue: ['Imbue'],
       },
     },
   },
   plugins: [],
 }
-

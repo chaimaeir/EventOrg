@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProviders, deleteProvider, updateProvider } from '../../../redux/actions/AdminBackOffice/providerActions';
@@ -134,3 +135,4 @@ function Providers() {
 }
 
 export default Providers;
+

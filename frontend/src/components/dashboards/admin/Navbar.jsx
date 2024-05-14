@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { IoNotifications } from 'react-icons/io5';
@@ -54,3 +55,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
