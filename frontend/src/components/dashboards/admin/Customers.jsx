@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCustomers, deleteCustomer, updateCustomer} from '../../../redux/actions/customerActions';
+import { fetchCustomers, deleteCustomer, updateCustomer} from '../../../redux/actions/AdminBackOffice/customerActions';
 import Navbar from './Navbar';
 import AdminSidebar from './AdminSidebar';
 import { FiEdit } from "react-icons/fi";

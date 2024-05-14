@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProviders, deleteProvider, updateProvider } from '../../../redux/actions/providerActions';
+import { fetchProviders, deleteProvider, updateProvider } from '../../../redux/actions/AdminBackOffice/providerActions';
 import Navbar from './Navbar';
 import AdminSidebar from './AdminSidebar';
 import { FiEdit } from "react-icons/fi";
