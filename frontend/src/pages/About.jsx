@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../shared/Navbar";
-import aboutUs from "../../assets/images/aboutUs.png";
-import celebration from "../../assets/images/celebration.png";
-import corporate from "../../assets/images/corporate.png";
-import ourMission1 from "../../assets/images/ourMission1.png";
-import ourMission2 from "../../assets/images/ourMission2.png";
-import ourMission3 from "../../assets/images/ourMission3.png";
-import Footer from "../shared/Footer";
+import Navbar from "../components/shared/Navbar";
+import aboutUs from "../assets/images/aboutUs.png";
+import celebration from "../assets/images/celebration.png";
+import corporate from "../assets/images/corporate.png";
+import ourMission1 from "../assets/images/ourMission1.png";
+import ourMission2 from "../assets/images/ourMission2.png";
+import ourMission3 from "../assets/images/ourMission3.png";
+import Footer from "../components/shared/Footer";
 
 function About() {
   return (
