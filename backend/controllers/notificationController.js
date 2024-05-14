@@ -20,6 +20,7 @@ const createNotification = ((req, res) => {
     const newNotification = new notification({
         user_id: req.body.user_id,
         recipient_type : req.body.recipient_type,
+        type: req.body.type,
         message: req.body.message,
         is_read: req.body.is_read
     })
