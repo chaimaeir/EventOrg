@@ -27,7 +27,7 @@ const getEvent = (async (req,res)=>{
 
 
 const createEvent = ((req, res) => {
-
+    console.log("hello")
     console.log(req.files);
     if(!req.files){
         return res.status(400).json({message:'No files were uploaded.'});

@@ -18,7 +18,6 @@ function Navbar() {
             <div className="max-w-7xl mx-auto px-4 h-[40px] flex justify-between items-center font-imbue text-black relative">
                 <div className="hidden md:block"></div>
                 
-                {/* Logo */}
                 <div className="hidden md:flex justify-center text-center items-center space-x-4">
                     <Link to="/home" className="text-2xl">Home</Link>
                     <Link to="/about" className="text-2xl">About</Link>
@@ -29,7 +28,6 @@ function Navbar() {
                     <Link to="/contact" className="text-2xl">Contact</Link>
                 </div>
                 
-                {/* Menu Icon for Small Screens */}
                 <div className="md:hidden">
                     <button onClick={menuOpen ? closeMenu : toggleMenu}>
                         <svg className="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -42,18 +40,16 @@ function Navbar() {
                     </button>
                 </div>
                 
-                {/* Sign In and Register Links */}
                 <div className="flex items-center">
                     <Link to="/login" className="mr-4 text-[20px] md:text-2xl py-1 px-4 rounded-2xl bg-[#f0f0f0]">Sign In</Link>
                     <Link to="/register" className="text-[20px] md:text-2xl rounded-2xl py-1 px-3 text-[#f0f0f0] bg-black">Register</Link>
                 </div>
                 
-                {/* Mobile Menu */}
                 {menuOpen && (
                     <div className="md:hidden absolute left-0 top-10">
                         <ul className="bg-white w-40 rounded-lg shadow-md text-center">
                             <li>
-                                <Link to="/home" className="block py-2 px-4 text-lg text-black hover:bg-gray-200" onClick={closeMenu}>Home</Link>
+                                <Link to="/" className="block py-2 px-4 text-lg text-black hover:bg-gray-200" onClick={closeMenu}>Home</Link>
                             </li>
                             <li>
                                 <Link to="/about" className="block py-2 px-4 text-lg text-black hover:bg-gray-200" onClick={closeMenu}>About</Link>
