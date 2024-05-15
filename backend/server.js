@@ -1,5 +1,10 @@
-const express=require( 'express')
-const database=require('./config/db')
+
+const express = require ('express')
+const DATABASE = require ('./config/db')
+const bodyParser = require('body-parser');
+
+
+
 require('dotenv').config()
 
 const adminRoute= require('./routes/adminRoutes');
@@ -11,11 +16,33 @@ const bookingRoute = require('./routes/bookingRoutes')
 const feedbackRoute = require('./routes/feedbackRoutes');
 const notificationRoute = require('./routes/notificationRoutes');
 const foodMenuRoute = require("./routes/foodMenuRoutes");
+
 const drinksMenuRoute = require("./routes/drinksMenuRoutes");
 const paymentRoute = require("./routes/paymentRoutes");
 
+
+
+const app = express();
+app.use(bodyParser.json());
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
+
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
+
+
+app.use('/api/admin',adminRoute);
+app.use('/api/provider',providerRoute);
+app.use('/api/auth',authRoute);
+app.use('/api/customer',customerRoute);
+// app.use('/api/events',eventsRoute);
+// app.use('/api/feedback',feedbackRoute);
+// app.use('/api/notification',notificationRoute);
+
+// const multer = require('multer');
+// const upload = multer({ dest : "./uploads"});
 
 
 
@@ -34,8 +61,9 @@ app.use('/api/provider',providerRoute);
 app.use('/api/auth',authRoute);
 app.use('/api/customer',customerRoute);
 
-app.use('/api/feedback',feedbackRoute);
- */
+
+ 
+
 
 
 app.use('/api/notification',notificationRoute);
@@ -65,7 +93,7 @@ app.use(
 
 
 
-const port=process.env.PORT 
-app.listen(port, ()=>{
-    console.log(`Server is running on ${port}`)
+//const port=process.env.PORT 
+app.listen(3000, ()=>{
+    console.log(`Server is running on 3000`)
 })
