@@ -9,7 +9,7 @@ const requireAuth = require ("../middlewares/authentication");
 
 // Route for creating a new customer
 router.post('/customer/register', authController.registerCustomer);
-router.post('/customer/login', customerController.loginCustomer);
+router.post('/customer/login', authController.loginCustomer);
 
 // Route for registering a new provider
 router.post('/provider/register', authController.registerProvider);

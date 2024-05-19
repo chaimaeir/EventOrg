@@ -1,4 +1,4 @@
-import Logo from "../../../../public/images/Logo.png";
+import Logo from "../../../assets/images/logoEvorg.png";
 
 function LoginAdminForm() {
     return (

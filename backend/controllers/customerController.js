@@ -3,34 +3,6 @@ const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
 
 
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: '30d',
-  });
-};
-
-
-exports.loginCustomer = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-
-  const customer = await Customer.findOne({ email });
-
-  if (customer && (await customer.comparePassword(password))) {
-    res.send({ message: "Logged succesfully"})
-    res.json({
-      _id: customer._id,
-      customername: customer.username,
-      email: customer.email,
-      token: generateToken(customer._id),
-    });
-  } else {
-    res.status(401).send('Invalid credentials');
-  }
-});
-
-
-// Route to create a customer
-
 
 
 // Get customer by Id

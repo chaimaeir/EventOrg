@@ -14,28 +14,18 @@ const generateToken = (id) => {
 
 //  register a provider
 const registerProvider = async (req, res) => {
+  const { companyName, email, password } = req.body;
   try {
-    const { companyName, email, password } = req.body;
-
-    // Check if the email is already registered
-    const existingProvider = await Provider.findOne({ email });
-    if (existingProvider) {
-      return res.status(400).json({ message: "Email is already registered" });
-    }
-
-    // Create a new provider instance
+    const hashedPassword = await bcrypt.hash(password, 10);
     const newProvider = new Provider({
       companyName,
       email,
-      password,
+      password: hashedPassword,
     });
-
-    // Save the new provider to the database
-    const savedProvider = await newProvider.save();
-
-    res.status(201).json(savedProvider);
+    await newProvider.save();
+    res.status(201).json({ message: 'Provider registered successfully' });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -66,6 +56,24 @@ const registerCustomer = async (req, res) => {
   }
 };
 
+const loginCustomer = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const customer = await Customer.findOne({ email });
+
+  if (customer && (await customer.comparePassword(password))) {
+    res.send({ message: "Logged succesfully" });
+    res.json({
+      _id: customer._id,
+      customername: customer.username,
+      email: customer.email,
+      token: generateToken(customer._id),
+    });
+  } else {
+    res.status(401).send("Invalid credentials");
+  }
+});
+
 const loginProvider = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -83,93 +91,6 @@ const loginProvider = asyncHandler(async (req, res) => {
     res.status(401).send("Invalid credentials");
   }
 });
-
-const handleErrors = (err) => {
-  console.log(err.message, err.code);
-  let errors = { email: "", password: "" };
-
-  // incorrect email
-  if (err.message === "incorrect email") {
-    errors.email = "That email is not registered";
-  }
-
-  // incorrect password
-  if (err.message === "incorrect password") {
-    errors.password = "That password is incorrect";
-  }
-
-  // duplicate email error
-  if (err.code === 11000) {
-    errors.email = "that email is already registered";
-    return errors;
-  }
-
-  // validation errors
-  if (err.message.includes("Customer validation failed")) {
-    // console.log(err);
-    Object.values(err.errors).forEach(({ properties }) => {
-      // console.log(val);
-      // console.log(properties);
-      errors[properties.path] = properties.message;
-    });
-  }
-
-  return errors;
-};
-
-// create json web token
-const maxAge = 3 * 24 * 60 * 60;
-const createToken = (id) => {
-  return jwt.sign({ id }, "bassam secret", {
-    expiresIn: maxAge,
-  });
-};
-
-// controller actions
-const signup_get = (req, res) => {
-  res.render("signup");
-};
-
-const login_get = (req, res) => {
-  res.render("login");
-};
-
-const signup_post = async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    const Customer = await Customer.create({ email, password });
-    const token = createToken(Customer._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
-    res.status(201).json({ Customer: Customer._id });
-  } catch (err) {
-    const errors = handleErrors(err);
-    res.status(400).json({ errors });
-  }
-};
-
-const login_post = async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    const Customer = await Customer.login(email, password);
-    const token = createToken(Customer._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
-    res.status(200).json({ Customer: Customer._id });
-  } catch (err) {
-    const errors = handleErrors(err);
-    res.status(400).json({ errors });
-  }
-};
-
-const logout_get = (req, res) => {
-  res.cookie("jwt", "", { maxAge: 1 });
-  res.redirect("/");
-};
-
-
-
-
 // Function to request a password reset
 const requestReset = async (req, res) => {
   try {
@@ -254,16 +175,11 @@ const passwordReset = async (req, res) => {
   }
 };
 
-
 module.exports = {
   requestReset,
   passwordReset,
   registerProvider,
   registerCustomer,
   loginProvider,
-  signup_get,
-  login_get,
-  signup_post,
-  login_post,
-  logout_get,
+  loginCustomer,
 };
