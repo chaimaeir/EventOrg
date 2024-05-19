@@ -2,7 +2,11 @@
 const express = require ('express')
 const DATABASE = require ('./config/db')
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
+
+const  app = express();
+app.use(cors());
 
 
 require('dotenv').config()
@@ -22,7 +26,7 @@ const paymentRoute = require("./routes/paymentRoutes");
 
 
 
-const app = express();
+
 app.use(bodyParser.json());
 
 app.use(express.json())
@@ -37,16 +41,20 @@ app.use('/api/admin',adminRoute);
 app.use('/api/provider',providerRoute);
 app.use('/api/auth',authRoute);
 app.use('/api/customer',customerRoute);
-// app.use('/api/events',eventsRoute);
+app.use('/api/events',eventsRoute);
+app.use('/api/bookings',bookingRoute);
+app.use('/api/foodMenu',foodMenuRoute);
+app.use('/api/drinksMenu',drinksMenuRoute);
+app.use('/api/payment',paymentRoute);
 // app.use('/api/feedback',feedbackRoute);
-// app.use('/api/notification',notificationRoute);
+app.use('/api/notification',notificationRoute);
 
 // const multer = require('multer');
 // const upload = multer({ dest : "./uploads"});
 
 
 
-const  app = express();
+
 
 app.use(express.json({
     verify: function (req, res, buf) {
@@ -94,6 +102,8 @@ app.use(
 
 
 //const port=process.env.PORT 
+*/
+
 app.listen(3000, ()=>{
-    console.log(`Server is running on 3000`)
+  console.log(`Server is running on 3000`)
 })

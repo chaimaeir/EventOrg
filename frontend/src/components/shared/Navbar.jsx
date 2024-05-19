@@ -18,10 +18,10 @@ function Navbar() {
             <div className="max-w-7xl mx-auto px-4 h-[40px] flex justify-between items-center font-imbue text-black relative">
                 <div className="hidden md:block"></div>
                 
-                <div className="hidden md:flex justify-center text-center items-center space-x-4">
-                    <Link to="/home" className="text-2xl">Home</Link>
+                <div className="hidden md:flex gap-4 justify-center text-center items-center space-x-4 ">
+                    <Link to="/" className="text-2xl">Home</Link>
                     <Link to="/about" className="text-2xl">About</Link>
-                    <Link to="/home">
+                    <Link to="/">
                         <img className='object-cover h-[70px]' src={evorglogo} alt="" />
                     </Link>
                     <Link to="/events" className="text-2xl">Events</Link>

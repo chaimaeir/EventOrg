@@ -11,7 +11,10 @@ import "./app.css";
 import DashboardLayout from "./layouts/dashboard";
 import Events from "./components/pages/Events";
 import Filter from "./components/shared/Filter";
-import Home from "./components/pages/Home";
+import Home from "./components/pages/Home"
+import EventForm from "./components/shared/EventForm";
+import ProviderProfile from "./components/pages/ProviderProfile";
+import Contact from "./components/pages/Contact";
 
 const App = () => {
   return (
@@ -25,8 +28,17 @@ const App = () => {
 
         <Route path="/filter" element={<Filter />}></Route>
 
+
+        <Route path="/contact" element={<Contact/>}></Route>
+
+
         <Route path="/" element={<Home />}></Route>
 
+        <Route path="/form" element={<EventForm />}></Route>
+
+        <Route path="/provider" element={<ProviderProfile />}></Route>
+
+        
 
 
       </Routes>

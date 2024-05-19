@@ -1,5 +1,6 @@
 const event = require('../models/event');
 var ObjectId = require('mongodb').ObjectId; 
+const bodyParser = require('body-parser');
 
 
 
@@ -27,7 +28,7 @@ const getEvent = (async (req,res)=>{
 
 
 const createEvent = ((req, res) => {
-    console.log("hello")
+    console.log(req.body.guestNumber)
     console.log(req.files);
     if(!req.files){
         return res.status(400).json({message:'No files were uploaded.'});
@@ -38,15 +39,15 @@ const createEvent = ((req, res) => {
         name: req.body.name,
         type: req.body.type,
         description: req.body.description,
-        price: req.body.price,
+        price: parseFloat(req.body.price),
         city:req.body.city,
         date: Date.now(),
-        guestNumber: req.body.guestNumber,
+        guestNumber: parseInt(req.body.guestNumber),
         pictures : paths,
         venue: req.body.venue,
         theme: req.body.theme,
-        foodMenu: req.body.foodMenu_id,
-        drinksMenu:req.body.drinksMenu_id
+        foodMenu: req.body.foodMenuId,
+        drinksMenu:req.body.drinksMenuId
     })
     newEvent
         .save()
