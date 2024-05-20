@@ -79,13 +79,13 @@ const Contact = () => {
             onFinish={onFinish}
           >
             <Form.Item  name="Full name"  rules={[{ required: true }]}>
-              <Input className="min-w-[700px] h-[60px] bg-[#e8672f]  hover:bg-[#f9e0d6] border border-none font-extralight "/>
+              <Input placeholder="Full Name" className="min-w-[700px] h-[60px] bg-[#e8672f]  hover:bg-[#f9e0d6] border border-none "/>
             </Form.Item>
             <Form.Item  name="Email" rules={[{ required: true }]}>
-              <Input className="min-w-[700px] h-[60px] bg-[#e8672f] hover:bg-[#f9e0d6] border border-none font-extralight "/>
+              <Input placeholder="Email" className="min-w-[700px] h-[60px] bg-[#e8672f] hover:bg-[#f9e0d6] border border-none  "/>
             </Form.Item>
             <Form.Item name="Message"  rules={[{ required: true }]}>
-              <TextArea className="min-w-[700px] bg-[#e8672f] hover:bg-[#f9e0d6] border border-none font-extralight " rows={8} />
+              <TextArea placeholder="Message" className="min-w-[700px] bg-[#e8672f] hover:bg-[#f9e0d6] border border-none " rows={8} />
             </Form.Item>
             <Form.Item >
               <Button className="text-[#e8672f] h-[40px]  bg-white  border border-[#e8672f] hover:bg-[#e8672f]"  htmlType="submit" loading={loading}>

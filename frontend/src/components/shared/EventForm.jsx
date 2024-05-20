@@ -3,6 +3,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import { Button, Form, Input, InputNumber, TreeSelect, Upload } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 const normFile = (e) => {
   if (Array.isArray(e)) {
@@ -15,6 +16,7 @@ const EventForm = () => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
 
   const onFinish = async (values) => {
     setLoading(true);
@@ -48,11 +50,12 @@ const EventForm = () => {
         wrapperCol={{ span: 20 }}
         layout="horizontal"
         style={{ maxWidth: 800 }}
-        className='min-w-[800px] p-10'
+        className='min-w-[800px] p-10 '
         onFinish={onFinish}
       >
         <Form.Item name="name" label="Event Name" rules={[{ required: true }]}>
-          <Input className='bg-[#e8672f] h-[60px]'/>
+          
+          <Input className='bg-gradient-to-r from-[#e8672f] to-[#f9a27b] h-[60px] text-white'/>
         </Form.Item>
         <Form.Item name="type" label="Event Type" rules={[{ required: true }]}>
           <TreeSelect className='h-[60px] bg-[#e8672f]'
@@ -82,22 +85,22 @@ const EventForm = () => {
           />
         </Form.Item>
         <Form.Item name="description" label="Description" rules={[{ required: true }]}>
-          <TextArea className='bg-[#e8672f] ' rows={4} />
+          <TextArea className='bg-gradient-to-r from-[#e8672f] to-[#f9a27b]  text-white ' rows={4} />
         </Form.Item>
         <Form.Item name="guestNumber" label="Guest Number" rules={[{ required: true }]}>
-          <InputNumber className='w-full bg-[#e8672f] h-[60px]' />
+          <InputNumber className='w-full bg-gradient-to-r from-[#e8672f] to-[#f9a27b] h-[60px] text-white' />
         </Form.Item>
         <Form.Item name="price" label="Price" rules={[{ required: true }]}>
-          <InputNumber className='w-full bg-[#e8672f] h-[60px]' />
+          <InputNumber className='w-full bg-gradient-to-r from-[#e8672f] to-[#f9a27b] h-[60px] text-white' />
         </Form.Item>
         <Form.Item name="venue" label="Venue" rules={[{ required: true }]}>
-          <Input className='bg-[#e8672f] h-[60px]' />
+          <Input className='bg-gradient-to-r from-[#e8672f] to-[#f9a27b] h-[60px] text-white' />
         </Form.Item>
         <Form.Item name="city" label="City" rules={[{ required: true }]}>
-          <Input  className='bg-[#e8672f] h-[60px]'/>
+          <Input  className='bg-gradient-to-r from-[#e8672f] to-[#f9a27b] h-[60px] text-white'/>
         </Form.Item>
         <Form.Item name="theme" label="Theme" rules={[{ required: true }]}>
-          <Input className='bg-[#e8672f] h-[60px]' />
+          <Input className='bg-gradient-to-r from-[#e8672f] to-[#f9a27b] h-[60px] text-white' />
         </Form.Item>
         <Form.Item
           name="picture"
