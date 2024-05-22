@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 // Route for getting all customers
-router.get('/', authorize ,customerController.getAllCustomers);
+router.get('/'  ,customerController.getAllCustomers);
 
 // Route for getting Customer profile
 router.get('/:CustomerId', customerController.getCustomerById );

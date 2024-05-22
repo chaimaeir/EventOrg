@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import EventForm from '../shared/EventForm';
-import ProfileNavbar from '../shared/ProfileNavbar';
+import EventForm from '../components/shared/EventForm';
+import ProfileNavbar from '../components/shared/ProfileNavbar';
 import { IoAddCircleOutline } from "react-icons/io5";
 
 function ProviderProfile() {

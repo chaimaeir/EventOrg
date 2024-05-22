@@ -40,7 +40,8 @@ const customerSchema = new mongoose.Schema({
       street: String,
       city: String,
       postalCode: String
-    }
+    },
+    required : false
   },
   savedEvents: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -65,18 +66,7 @@ customerSchema.methods.comparePassword = async function(candidatePassword) {
 };
 
 
-// // static method to login customer
-// customerSchema.statics.login = async function(email, password) {
-//   const customer = await this.findOne({ email });
-//   if (customer) {
-//     const auth = await bcrypt.compare(password, customer.password);
-//     if (auth) {
-//       return customer;
-//     }
-//     throw new Error('Incorrect password');
-//   }
-//   throw new Error('Incorrect email');
-// };
+
 
 const Customer = mongoose.model('Customer', customerSchema);
 

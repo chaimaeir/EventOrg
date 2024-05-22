@@ -5,13 +5,15 @@ export default {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
-
-    fontFamily:{
-      imbue : ['Imbue']
-    }
-    
+    extend: {
+      colors: {
+        'fray': '#C5C5C5', // Custom color 'fray' with hex value #C5C5C5
+        'fray-dark': '#9E9E9E', // Darker shade for focus state
+      },
+      fontFamily: {
+        imbue: ['Imbue'],
+      },
+    },
   },
   plugins: [],
 }
-

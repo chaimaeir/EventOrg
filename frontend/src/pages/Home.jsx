@@ -1,13 +1,12 @@
 import React from "react";
-import Navbar from "../shared/Navbar";
-import home from "../../assets/images/home.png";
-import secondImg from "../../assets/images/secondHomeImg.png";
-import Footer from "../shared/Footer";
-import bestevent1 from "../../assets/images/bestevent1.png"
-import bestevent2 from "../../assets/images/bestevent2.png"
-import flower from "../../assets/images/flower.png"
-import redFlower from "../../assets/images/redFlower.png"
-import greenFlower from "../../assets/images/greenFlower.png"
+import Navbar from "../components/shared/Navbar";
+import home from "../assets/images/home.png";
+import secondImg from "../assets/images/secondHomeImg.png";
+import Footer from "../components/shared/footer";
+import bestevent1 from "../assets/images/bestevent1.png"
+import bestevent2 from "../assets/images/bestevent2.png"
+import flower from "../assets/images/flower.png"
+import greenFlower from "../assets/images/greenFlower.png"
 
 
 function Home() {

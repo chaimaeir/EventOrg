@@ -1,18 +1,17 @@
-import Navbar from "../shared/Navbar";
-import eventsPic from "../../assets/images/events.png";
-import wedding from "../../assets/images/wedding.png";
-import engagement from "../../assets/images/engagement.png";
-import graduation from "../../assets/images/graduation.png";
-import anniversary from "../../assets/images/anniversary.png";
-import babyshower from "../../assets/images/babyshower.png";
-import birthday from "../../assets/images/birthday.png";
-import conference from "../../assets/images/conference.png";
-import teambuilding from "../../assets/images/teambuilding.png";
-import productlaunching from "../../assets/images/productlaunching.png";
-import Footer from "../shared/Footer";
-import pinkFlower from "../../assets/images/pinkFlower.png"
-import greenFlower from "../../assets/images/greenFlower.png"
-import beigeFlower from "../../assets/images/beigeFlower.png"
+import Navbar from "../components/shared/Navbar"
+import events from "../assets/images/events.png";
+import wedding from "../assets/images/wedding.png";
+import engagement from "../assets/images/engagement.png";
+import graduation from "../assets/images/graduation.png";
+import anniversary from "../assets/images/anniversary.png";
+import babyshower from "../assets/images/babyshower.png";
+import birthday from "../assets/images/birthday.png";
+import conference from "../assets/images/conference.png";
+import teambuilding from "../assets/images/teambuilding.png";
+import productlaunching from "../assets/images/productlaunching.png";
+import Footer from "../components/shared/footer";
+import pinkFlower from "../assets/images/pinkFlower.png"
+import greenFlower from "../assets/images/greenFlower.png"
 
 function Events() {
   return (
@@ -21,7 +20,7 @@ function Events() {
         <Navbar />
 
         <div className=" relative flex-1 ">
-          <img className="absolute z-[-1] w-full h-full object-cover rounded-[90px] " src={eventsPic} alt="" />
+          <img className="absolute z-[-1] w-full h-full object-cover rounded-[90px] " src={events} alt="" />
           <p className=" flex items-center justify-center z-10  h-full text-white font-semibold text-[7rem] md:text-[14rem] font-imbue">
             Events
           </p>

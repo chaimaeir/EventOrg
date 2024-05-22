@@ -1,5 +1,5 @@
-import Navbar from "../shared/Navbar"
-import arrow from "../../assets/images/arrow.png"
+import Navbar from "../components/shared/Navbar"
+import arrow from "../assets/images/arrow.png"
 import { motion } from 'framer-motion';
 
 

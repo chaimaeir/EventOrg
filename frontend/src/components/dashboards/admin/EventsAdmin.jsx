@@ -1,9 +1,9 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar'
 
-import Navbar from './Navbar';
+import Navbar from './Navbar'
 
-function Payment() {
+function Events() {
   return (
     <div>
     <div className="flex">
@@ -15,4 +15,4 @@ function Payment() {
   )
 }
 
-export default Payment
+export default Events

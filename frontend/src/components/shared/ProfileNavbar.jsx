@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import evorglogo from "../../assets/images/logoEvorg.png";
-import { useState } from "react";
+import evorglogo from "../../assets/images/logoEvorg.png"
+import React, { useState } from "react";
 import { CgProfile } from "react-icons/cg";
 
 import { IoIosNotificationsOutline } from "react-icons/io";
