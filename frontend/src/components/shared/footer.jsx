@@ -7,7 +7,7 @@ import Logo2 from "../../assets/images/logoEvorg.png";
 function Footer() {
   return (
     <div className='min-w-[416px]'>
-      <div className="bg-red-800 min-w-[416px]">
+      <div className="bg-[#213f2e] min-w-[416px]">
         <div className="max-w-screen-lg flex flex-col items-center  px-4 md:px-5 text-black md:grid md:grid-cols-4  md:items-center mx-auto">
           <div className="md:p-5">
             <img src={Logo2} alt="image" />
@@ -54,7 +54,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="bg-red-800">
+      <div className="bg-[#213f2e]">
         <div
           className="flex pb-5 px-3 m-auto pt-5 border-t text-black text-sm flex-col
       max-w-screen-lg items-center"

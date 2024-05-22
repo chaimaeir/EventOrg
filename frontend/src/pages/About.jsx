@@ -6,7 +6,7 @@ import corporate from "../assets/images/corporate.png";
 import ourMission1 from "../assets/images/ourMission1.png";
 import ourMission2 from "../assets/images/ourMission2.png";
 import ourMission3 from "../assets/images/ourMission3.png";
-import Footer from "../components/shared/Footer";
+import Footer from "../components/shared/footer";
 
 function About() {
   return (
@@ -40,7 +40,7 @@ function About() {
         </div>
       </div>
 
-      <div className="min-w-[420px] flex flex-col  items-center justify-center py-5">
+      <div className="min-w-[420px] flex flex-col  items-center justify-center py-5 border bg-[#f1faef] overflow-x-visible overflow-y-visible">
         <h1 className="text-[#213f2e] text-4xl md:text-6xl font-imbue mt-6 ">
           Our Mission
         </h1>
@@ -55,7 +55,7 @@ function About() {
           </p>
           <div className="max-w-[350px] flex md:max-w-[700px] md:ml-[100] p-5">
             <img
-              className="max-h-[200px] md:max-h-[350px] mt-32 z-[-1]"
+              className="max-h-[200px] md:max-h-[350px] mt-32 z-0"
               src={ourMission1}
               alt=""
             />
@@ -65,7 +65,7 @@ function About() {
               alt=""
             />
             <img
-              className="max-h-[200px] md:max-h-[350px] ml-[-70px] mt-40"
+              className="max-h-[200px] md:max-h-[350px] ml-[-70px] mt-40 z-20 "
               src={ourMission3}
               alt=""
             />
@@ -78,9 +78,9 @@ function About() {
           OUR PROMISE TO YOU
         </h1>
 
-        <div className="flex flex-col md:flex-row md:gap-16 items-center bg-[#f0e3e3] justify-center p-8 mt-12">
+        <div className="flex flex-col md:flex-row md:gap-16 items-center bg-[#cad9c6] justify-center p-8 mt-12">
           <div className="flex flex-col p-5  ">
-            <h3 className=" pb-5 md:text-4xl font-semibold text-[#b1170d] ">
+            <h3 className=" pb-5 md:text-4xl font-semibold text-[#213f2e] ">
               Service D'excellence
             </h3>
             <p className="md:text-2xl">
@@ -90,7 +90,7 @@ function About() {
           </div>
 
           <div className="flex flex-col p-5 ">
-            <h3 className=" pb-5 md:text-4xl font-semibold text-[#b1170d] ">
+            <h3 className=" pb-5 md:text-4xl font-semibold text-[#213f2e] ">
               Service D'excellence
             </h3>
             <p className="md:text-2xl">
@@ -99,7 +99,7 @@ function About() {
             </p>
           </div>
           <div className="flex flex-col p-5 ">
-            <h3 className=" pb-5 md:text-4xl font-semibold text-[#b1170d] ">
+            <h3 className=" pb-5 md:text-4xl font-semibold text-[#213f2e] ">
               Service D'excellence
             </h3>
             <p className="md:text-2xl">
@@ -108,7 +108,7 @@ function About() {
             </p>
           </div>
           <div className="flex flex-col p-5 ">
-            <h3 className=" pb-5 md:text-4xl font-semibold text-[#b1170d] ">
+            <h3 className=" pb-5 md:text-4xl font-semibold text-[#213f2e] ">
               Service D'excellence
             </h3>
             <p className="md:text-2xl ">
@@ -132,7 +132,7 @@ function About() {
                   className="py-6 mr-4 px-5 font-imbue text-4xl rounded-lg  border w-full focus:outline-none border-white    "
                 />
               </div>
-              <button className="bg-gradient-to-br from-red-700 to-black font-imbue w-full text-xl  min-h-20 min-w-64 hover:shadow-md focus:ring-2 focus:ring-indigo-500/50 ring-offset-2 ring-offset-[#EAE8FF] hover:drop-shadow transition duration-200 lg:w-1/3 text-white text-sm rounded-lg px-5 py-2.5 shadow-md group font-clash font-[500]">
+              <button className="bg-gradient-to-br from-[#213f2e] to-black font-imbue w-full text-xl  min-h-20 min-w-64 hover:shadow-md focus:ring-2 focus:ring-indigo-500/50 ring-offset-2 ring-offset-[#EAE8FF] hover:drop-shadow transition duration-200 lg:w-1/3 text-white  rounded-lg px-5 py-2.5 shadow-md group font-clash font-[500]">
                 Notify Me
               </button>
             </div>

@@ -14,7 +14,7 @@ const {
 
 router.get('/', getEvents);
 router.get('/:ID', getEvent);
-router.post('/',upload.array("picture",12), createEvent);
+router.post('/',upload.array("picture",5), createEvent);
 router.get('/search/:keyword', searchEvent);
 router.post('/update/:ID',upload.array("picture",12),updateEvent);
 router.delete('/delete/:ID', deleteEvent);
