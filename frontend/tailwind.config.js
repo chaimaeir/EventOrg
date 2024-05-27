@@ -7,15 +7,19 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        imbue:["Imbue"]
+        imbue: ["Imbue"]
       },
-    fontWeight:{
-      imbue:{
-        300:"light",
-        500:"medium ",
-        400: "Regular"
+      fontWeight: {
+        imbue: {
+          300: "light",
+          500: "medium",
+          400: "regular"
+        }
+      },
+      colors: {
+        
+        beige: '#F5F5DC',
       }
-    }
     },
   },
   plugins: [],

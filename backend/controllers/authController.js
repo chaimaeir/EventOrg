@@ -16,14 +16,13 @@ const generateToken = (id) => {
 const registerProvider = async (req, res) => {
   const { companyName, email, password } = req.body;
   try {
-    const hashedPassword = await bcrypt.hash(password, 10);
     const newProvider = new Provider({
       companyName,
       email,
-      password: hashedPassword,
+      password: password,
     });
     await newProvider.save();
-    res.status(201).json({ message: 'Provider registered successfully' });
+    res.status(201).json({ message: "Provider registered successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -31,10 +30,8 @@ const registerProvider = async (req, res) => {
 
 // Create a new customer profile
 const registerCustomer = async (req, res) => {
-  try {
-    const { username, email, password } = req.body;
-
-    // Check if the email is already registered
+    const { userName, email, password } = req.body;
+    try {
     const existingCustomer = await Customer.findOne({ email });
     if (existingCustomer) {
       return res.status(400).json({ message: "Email is already registered" });
@@ -42,15 +39,15 @@ const registerCustomer = async (req, res) => {
 
     // Create a new customer instance
     const newCustomer = new Customer({
-      username,
+      userName,
       email,
-      password,
+      password: password,
     });
 
     // Save the new customer to the database
-    const savedCustomer = await newCustomer.save();
+     await newCustomer.save();
 
-    res.status(201).json(savedCustomer);
+    res.status(201).json({ message: "Customer registered successfully" });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -58,39 +55,60 @@ const registerCustomer = async (req, res) => {
 
 const loginCustomer = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
+  try {
+    // Find customer by email
+    const customer = await Customer.findOne({ email });
+    if (!customer) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
 
-  const customer = await Customer.findOne({ email });
+    // Compare provided password with stored hashed password
+    const isMatch = await customer.comparePassword(password);
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
 
-  if (customer && (await customer.comparePassword(password))) {
-    res.send({ message: "Logged succesfully" });
+    // Successful login
     res.json({
+      message: "Logged in successfully",
       _id: customer._id,
-      customername: customer.username,
+      customername: customer.userName,
       email: customer.email,
       token: generateToken(customer._id),
     });
-  } else {
-    res.status(401).send("Invalid credentials");
+  } catch (error) {
+    // Catch any other errors
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
   }
 });
 
 const loginProvider = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-
-  const provider = await Provider.findOne({ email });
-
-  if (provider && (await provider.comparePassword(password))) {
-    res.send({ message: "Logged succesfully" });
+  try {
+    
+    const provider = await Provider.findOne({ email });
+    if (!provider) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+    const isMatch = await provider.comparePassword(password)
+    console.log(isMatch)
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
     res.json({
+      message: "Logged in successfully",
       _id: provider._id,
       providername: provider.username,
       email: provider.email,
       token: generateToken(provider._id),
     });
-  } else {
-    res.status(401).send("Invalid credentials");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
   }
 });
+
 // Function to request a password reset
 const requestReset = async (req, res) => {
   try {
@@ -182,4 +200,5 @@ module.exports = {
   registerCustomer,
   loginProvider,
   loginCustomer,
+  generateToken,
 };

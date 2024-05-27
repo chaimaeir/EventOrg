@@ -39,8 +39,7 @@ app.use('/api/events',eventsRoute);
 //app.use('/api/feedback',feedbackRoute);
 app.use('/api/events',eventsRoute);
 
-// const multer = require('multer');
-// const upload = multer({ dest : "./uploads"});
+
 
 app.use(express.json({
     verify: function (req, res, buf) {

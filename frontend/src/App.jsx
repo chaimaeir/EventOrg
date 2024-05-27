@@ -16,8 +16,11 @@ import ResetPassword from "./Pages/auth//ResetPassword/index";
 import LoginAdminForm from "./Pages/auth/Admin/loginadmin";
 import SignUpAs from "./Pages/auth/SignUpAs/index";
 import Events from "./Pages/Events";
-import Filter from "./components/shared/Filter";
 import Home from "./Pages/Home";
+import Card from "../src/Pages/Card";
+import WeddingEventPage from "./Pages/WeddingEventPage";
+import Filter from "./Pages/Filter";
+
 
 function App() {
   return (
@@ -50,6 +53,10 @@ function App() {
           <Route path="/filter" element={<Filter />} />
 
           <Route path="/" element={<Home />} />
+          <Route path="/card" element={<Card />} />
+          <Route path="/WeddingPage" element={<WeddingEventPage />} />
+          <Route path="/filter" element={<Filter/>} />
+
         </Routes>
       </BrowserRouter>
     </>

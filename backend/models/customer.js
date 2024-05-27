@@ -5,10 +5,10 @@ const crypto = require("crypto")
 
 
 const customerSchema = new mongoose.Schema({
-  username: {
+  userName: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   email: {
     type: String,
@@ -63,26 +63,26 @@ const customerSchema = new mongoose.Schema({
   
 });
 
-// fire a function before doc saved to db
-customerSchema.pre('save', async function(next) {
-  if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 8);
-  }
-  next();
-});
 
 // Hash password before saving to the database
 customerSchema.pre('save', async function(next) {
-  if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 8);
+  if (!this.isModified('password')) {
+    return next();
   }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
   next();
 });
 
 // Method to compare passwords
-customerSchema.methods.comparePassword = async function(candidatePassword) {
-  return bcrypt.compare(candidatePassword, this.password);
-};
+customerSchema.methods.comparePassword = async function (candidatePassword) {
+  return new Promise((resolve,reject)=>{
+    bcrypt.compare(candidatePassword, this.password, (err, res) => {
+      if (err) throw reject(err)
+      resolve(res)
+  })
+})
+}
 
 
 

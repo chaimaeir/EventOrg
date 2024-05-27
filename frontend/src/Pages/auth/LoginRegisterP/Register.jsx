@@ -1,23 +1,60 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import register from "../../../assets/images/register.png";
+import { Link, useNavigate } from "react-router-dom";
+import { z } from "zod";
+import registerImage from "../../../assets/images/register.png";
 import { registerProvider } from "../../../redux/actions/AuthActions.js/index";
 
-function RegisterProvider() {
+const RegisterP = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { loading, error } = useSelector((state) => state.auth);
-  const [companyName, setCompanyName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSignUp = () => {
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
+  const [formData, setFormData] = useState({
+    companyName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+  
+  const [formErrors, setFormErrors] = useState({});
+
+  const schema = z.object({
+    companyName: z.string().nonempty({ message: "Company Name is required" }),
+    email: z.string().email({ message: "Invalid email address" }),
+    password: z.string()
+      .min(8, { message: "Password must be at least 8 characters long" })
+      .regex(/[A-Z]/, { message: "Password must contain at least one uppercase letter" })
+      .regex(/[a-z]/, { message: "Password must contain at least one lowercase letter" })
+      .regex(/\d/, { message: "Password must contain at least one number" })
+      .regex(/[!@#$%^&*(),.?":{}|<>]/, { message: "Password must contain at least one special character" }),
+    confirmPassword: z.string().nonempty({ message: "Confirm Password is required" })
+  }).refine(data => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"]
+  });
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    try {
+      schema.parse(formData);
+      setFormErrors({});
+      dispatch(registerProvider(formData)).then((result) => {
+        if (registerProvider.fulfilled.match(result)) {
+          navigate("/loginp");
+        }
+      });
+    } catch (err) {
+      setFormErrors(err.errors.reduce((acc, curr) => {
+        acc[curr.path[0]] = curr.message;
+        return acc;
+      }, {}));
     }
-    dispatch(registerProvider({ companyName, email, password }));
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -29,59 +66,59 @@ function RegisterProvider() {
             style={{
               fontFamily: "Poppins",
               fontWeight: "500",
-              fontSize: "32px",
+              fontSize: "32px"
             }}
           >
             Get Started Now
           </span>
 
           {error && <p className="text-red-500">{error}</p>}
-          <div className="py-4">
+          <div className="py-3">
             <span className="mb-2 text-md">Company Name</span>
             <input
               type="text"
-              className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
+              className="w-full p-1 border border-gray-300 rounded-xl placeholder-font-light placeholder-text-gray-500"
               name="companyName"
-              id="companyName"
-              value={companyName}
-              onChange={(e) => setCompanyName(e.target.value)}
+              value={formData.companyName}
+              onChange={handleChange}
             />
+            {formErrors.companyName && <p className="text-red-500">{formErrors.companyName}</p>}
           </div>
-          <div className="py-4">
-            <span className="mb-2 text-md">Email</span>
+          <div className="py-2">
+            <span className="mb-2  text-md">Email</span>
             <input
               type="email"
-              className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
+              className="w-full p-1 border border-gray-300 rounded-xl placeholder-font-light placeholder-text-gray-500"
               name="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formData.email}
+              onChange={handleChange}
             />
+            {formErrors.email && <p className="text-red-500">{formErrors.email}</p>}
           </div>
-          <div className="py-4">
+          <div className="py-2">
             <span className="mb-2 text-md">Password</span>
             <input
               type="password"
               name="password"
-              id="password"
-              className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-1 border border-gray-300 rounded-xl placeholder-font-light placeholder-text-gray-500"
+              value={formData.password}
+              onChange={handleChange}
             />
+            {formErrors.password && <p className="text-red-500">{formErrors.password}</p>}
           </div>
-          <div className="py-4">
+          <div className="py-2">
             <span className="mb-2 text-md">Confirm Password</span>
             <input
               type="password"
               name="confirmPassword"
-              id="confirmPassword"
-              className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="w-full p-1 border border-gray-300 rounded-xl placeholder-font-light placeholder-text-gray-500"
+              value={formData.confirmPassword}
+              onChange={handleChange}
             />
+            {formErrors.confirmPassword && <p className="text-red-500">{formErrors.confirmPassword}</p>}
           </div>
           <button
-            className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
+            className="w-full bg-black text-white py-2 rounded-lg mb-5 hover:bg-white hover:text-black hover:border hover:border-gray-300"
             onClick={handleSignUp}
             disabled={loading}
           >
@@ -97,7 +134,7 @@ function RegisterProvider() {
         </div>
         <div className="relative">
           <img
-            src={register}
+            src={registerImage}
             alt="img"
             className="w-[400px] h-full hidden rounded-3xl md:block object-cover"
           />
@@ -105,6 +142,6 @@ function RegisterProvider() {
       </div>
     </div>
   );
-}
+};
 
-export default RegisterProvider;
+export default RegisterP;

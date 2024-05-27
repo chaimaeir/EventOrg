@@ -1,17 +1,24 @@
 import React, {useState}  from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import register from "../../../assets/images/register.png";
 import gle from "../../../assets/images/gle.svg";
+import { registerCustomer } from "../../../redux/actions/AuthActions.js/index";
 
 function Register() {
-  const [name, setName] = useState("");
+  const dispatch = useDispatch();
+  const [userName, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-// //   const handleSignUp = () => {
-// //     // Add sign up logic here
-//   };
+  const handleSignUp = () => {
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    dispatch(registerCustomer({ userName, email, password }));
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 md:p-6">
@@ -29,10 +36,10 @@ function Register() {
             <span className="mb-1 text-sm md:text-md">Name</span>
             <input
               type="text"
-              className="w-full p-1 md:p-1 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
+              className="w-full p-1 md:p-1 border border-gray-300 rounded-xl placeholder-font-light placeholder-text-gray-500"
               name="name"
               id="name"
-              value={name}
+              value={userName}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -40,7 +47,7 @@ function Register() {
             <span className="mb-1 text-sm md:text-md">Email</span>
             <input
               type="email"
-              className="w-full p-1 md:p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
+              className="w-full p-1 border border-gray-300 rounded-xl placeholder-font-light placeholder-text-gray-500"
               name="email"
               id="email"
               value={email}
@@ -48,30 +55,31 @@ function Register() {
             />
           </div>
           <div className="flex flex-col md:space-x-">
-            <div className="py-1 md:py-1 w-full">
+            <div className="py-1 w-full">
               <span className="mb-1 text-sm md:text-md">Password</span>
               <input
                 type="password"
                 name="password"
                 id="password"
-                className="w-full p-1 md:p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
+                className="w-full p-1 border border-gray-300 rounded-xl placeholder-font-light placeholder-text-gray-500"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="py-1 md:py-1 w-full">
+            <div className="py-1 w-full">
               <span className="mb-1 text-sm md:text-md">Confirm Password</span>
               <input
                 type="password"
                 name="confirmPassword"
                 id="confirmPassword"
-                className="w-full p-1 md:p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
+                className="w-full p-1 border border-gray-300 rounded-xl placeholder-font-light placeholder-text-gray-500"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
           </div>
-          <button className="w-full bg-black mt-4 text-white p-2 rounded-lg mb-4 hover:bg-white hover:text-black hover:border hover:border-gray-300">
+          <button className="w-full bg-black mt-4 text-white p-2 rounded-lg mb-4 hover:bg-white hover:text-black hover:border hover:border-gray-300"
+          onClick={handleSignUp}>
             Sign up
           </button>
           <div className="md:my-2 border-b text-center">
