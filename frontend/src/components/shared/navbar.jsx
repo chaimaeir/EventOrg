@@ -44,8 +44,8 @@ function Navbar() {
                 
                 {/* Sign In and Register Links */}
                 <div className="flex items-center">
-                    <Link to="/loginc" className="mr-4 text-[20px] md:text-2xl py-1 px-4 rounded-2xl bg-[#f0f0f0]">Sign In</Link>
-                    <Link to="/signUpAs" className="text-[20px] md:text-2xl rounded-2xl py-1 px-3 text-[#f0f0f0] bg-black">Register</Link>
+                    <Link to="/login" className="mr-4 text-[20px] md:text-2xl py-1 px-4 rounded-2xl bg-[#f0f0f0]">Sign In</Link>
+                    <Link to="/register" className="text-[20px] md:text-2xl rounded-2xl py-1 px-3 text-[#f0f0f0] bg-black">Register</Link>
                 </div>
                 
                 {/* Mobile Menu */}
