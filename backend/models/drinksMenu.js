@@ -1,21 +1,20 @@
 const mongoose = require('mongoose');
 
 const drinksMenuSchema = new mongoose.Schema({
-    menu: {
-        type : [{name: {
+    menu: [{
+        name: {
             type: String,
-            required :true
+            required: true
         },
-        pictures:[{
-            type : String,
+        pictures: [{
+            type: String,
             required: true
         }],
         category: {
-            type : String
-        }}],
-        required: true
-    } 
-});
+            type: String
+        }
+    }],
+}, { timestamps: true });
 
 const DrinksMenu = new mongoose.model("drinksMenus", drinksMenuSchema);
 

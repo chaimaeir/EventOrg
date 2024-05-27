@@ -12,93 +12,92 @@ const cardsData = [
     description: "Description for wedding 1...",
     author: "Author 1",
     location: "Location 1",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
   {
     title: "Luxury Wedding ",
     description: "Description for wedding 2...",
     author: "Author 2",
     location: "Location 2",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
-  
+
   {
     title: "Luxury Wedding ",
     description: "Description for wedding 12...",
     author: "Author 12",
     location: "Location 12",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
-  
+
   {
     title: "Luxury Wedding ",
     description: "Description for wedding 12...",
     author: "Author 12",
     location: "Location 12",
-    imageSrc: LuxuryWedding
-  },
-  {
-    title: "Luxury Wedding ",
-    description: "Description for wedding 12...",
-    author: "Author 12",
-    location: "Location 12",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
   {
     title: "Luxury Wedding ",
     description: "Description for wedding 12...",
     author: "Author 12",
     location: "Location 12",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
   {
     title: "Luxury Wedding ",
     description: "Description for wedding 12...",
     author: "Author 12",
     location: "Location 12",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
   {
     title: "Luxury Wedding ",
     description: "Description for wedding 12...",
     author: "Author 12",
     location: "Location 12",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
   {
     title: "Luxury Wedding ",
     description: "Description for wedding 12...",
     author: "Author 12",
     location: "Location 12",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
   {
     title: "Luxury Wedding ",
     description: "Description for wedding 12...",
     author: "Author 12",
     location: "Location 12",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
   {
     title: "Luxury Wedding ",
     description: "Description for wedding 12...",
     author: "Author 12",
     location: "Location 12",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
   {
     title: "Luxury Wedding ",
     description: "Description for wedding 12...",
     author: "Author 12",
     location: "Location 12",
-    imageSrc: LuxuryWedding
+    imageSrc: LuxuryWedding,
   },
-  
+  {
+    title: "Luxury Wedding ",
+    description: "Description for wedding 12...",
+    author: "Author 12",
+    location: "Location 12",
+    imageSrc: LuxuryWedding,
+  },
 ];
 
 const Card = ({ title, description, author, location, imageSrc }) => (
   <div className="w-72 p-6 ">
-    <div className="bg-[#f5f5dc] rounded-lg shadow-lg w-full max-w-sm mx-auto"> 
+    <div className="bg-[#f5f5dc] rounded-lg shadow-lg w-full max-w-sm mx-auto">
       <div className="relative flex justify-center">
         <img className=" mt-5 h-48 " src={imageSrc} alt="card-image" />
       </div>
@@ -106,9 +105,7 @@ const Card = ({ title, description, author, location, imageSrc }) => (
         <h2 className="text-center mb-2 font-imbue text-3xl font-semibold">
           {title}
         </h2>
-        <p className="font-imbue">
-          {description}
-        </p>
+        <p className="font-imbue">{description}</p>
       </div>
       <div className="p-6 pt-0 flex">
         <LuUser2 />
@@ -124,7 +121,7 @@ const Card = ({ title, description, author, location, imageSrc }) => (
 
 function WeddingEventPage() {
   return (
-    <div className="min-h-screen flex flex-col"> 
+    <div className="min-h-screen flex flex-col">
       <Navbar />
 
       <div className="relative flex-1">
@@ -137,13 +134,27 @@ function WeddingEventPage() {
           Events
         </p>
       </div>
+      <div className="flex justify-end w-full pr-10">
+  <form className="mt-10 justify-end max-w-xl py-2 px-6 rounded-full bg-gray-50 border flex focus-within:border-gray-300">
+    <input
+      type="text"
+      placeholder="Search anything"
+      className="bg-transparent w-full focus:outline-none pr-4 font-semibold border-0 focus:ring-0 px-0 py-0"
+      name="topic"
+    />
+    <button className="flex flex-row items-center justify-center min-w-[130px] px-4 rounded-full border disabled:cursor-not-allowed disabled:opacity-50 transition ease-in-out duration-150 text-base bg-black text-white font-medium tracking-wide border-transparent py-1.5 h-[38px] -mr-3">
+      Search
+    </button>
+  </form>
+</div>
+
 
       <div className="flex items-center justify-center py-12">
         <h1 className="text-[#213f2e] text-7xl font-imbue">Weddings</h1>
       </div>
 
       <div className="flex justify-end  mb-20 pr-6">
-      <Filter />
+        <Filter />
         <div className="flex-wrap grid grid-cols-3 justify-end">
           {cardsData.map((card, index) => (
             <Card
@@ -156,7 +167,6 @@ function WeddingEventPage() {
             />
           ))}
         </div>
-        
       </div>
     </div>
   );
